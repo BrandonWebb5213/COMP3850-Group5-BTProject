@@ -2,7 +2,8 @@ export {infoPage, mainPage, missingPage};
 
 function infoPage() {
     document.getElementById("content-area").innerHTML = "<div id=\"help-dialogue\" class=\"content-block\">" +
-    "There will be some information about what the tool does. This includes an explanation of ESGs."
+    "<div class=\"content-block-heading\">Information on the ESG Comparison Tool</div><br>" +
+    "There will be some information about what the tool does. This includes an explanation of ESGs and BT Financial."
     "</div>";
     document.getElementById("help-control").innerHTML = "<a href=\".\/\"" +
         "class=\"help-icon\"" +
@@ -23,7 +24,7 @@ function missingPage(targetId) {
 }
 
 const generateSidebar = (superfundList, concernList, selectedSuperfunds, selectedConcerns) => {
-    return "<form id=\"sidebar\">" +
+    return "<form id=\"sidebar\" onSubmit=\"loadSelectedContent()\">" +
         "<div id=\"superfund-list\" class=\"sidebar-list\">" +
             "<p class=\"sidebar-category-heading\">Super Funds</p>" +
             generateSuperfundList(superfundList, selectedSuperfunds) +

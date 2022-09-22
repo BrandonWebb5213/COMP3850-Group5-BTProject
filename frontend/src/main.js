@@ -6,9 +6,6 @@ let concernList = ["Concern 1", "Concern 2", "Concern 3", "Concern 4", "Concern 
 let selectedSuperfunds = [0, 0, 0, 0, 0, 0];
 let selectedConcerns = [0, 0, 0, 0, 0, 0];
 
-let form = document.getElementById("sidebar");
-//form.addEventListener('submit', loadSelectedContent);
-
 function redraw() {
     let targetId = "main";
     if (window.location.hash == "#!/info") {
@@ -24,7 +21,7 @@ function redraw() {
 }
 
 function loadSelectedContent() {
-    for (let i = 0; i < superFundList.length; i++) {
+    for (let i = 0; i < superfundList.length; i++) {
         let id = "fund" + i;
         if (document.getElementById(id).value == 1) {
             selectedSuperfunds[i] = 1;
