@@ -5,40 +5,90 @@ body {
     background: radial-gradient(#64b2e6,#007ac3);
     background-repeat: no-repeat;
     background-attachment: fixed;
+    overflow: hidden;
 }
+#main {
+    display: grid;
+    grid-template-rows: auto auto;
+}
+
 /* Header Elements */
 #header {
     background-color: #00232b;
     height: 48px;
-    display: block;
+    display: flex;
 }
 #logo {
-    display: inline-block;
 }
 #logo img {
-    height: 16px;
-    margin: 16px 0 0 10px;
+    height: 20px;
+    margin: 14px 0 0 10px;
 }
 h1 {
     color: white;
     margin: 0;
-    font-weight:normal;
     font-size: 18px;
-    display: inline-block;
-    margin: 12px 0 0 0;
+    flex: 1;
+    padding: 13px;
 }
+.help-icon {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 28px;
+    border: 3px solid;
+    border-radius: 1.4ex;
+    height: 28px;
+    width: 28px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 7px;
+}
+.help-icon:hover {
+    color: #171717;
+}
+#help-close-icon {
+    color: rgb(119, 56, 56);
+}
+#help-close-icon:hover {
+    color: #171717;
+}
+#little-x {
+    font-size: 12px;
+}
+
 /* Sidebar Elements */
 #sidebar {
     background: #171717;
     color: white;
     height: 100%;
     width: 9em;
+    padding: 0.5em;
+    margin: 0 0 -5000px 0;
+    padding: 0 0 5000px 0;
+    grid-column: 1;
+}
+.sidebar-list {
+    padding: 0.75em 0 0 0.5em;
+}
+#superfund-list {
+    margin: 0 0 1em 0;
+}
+#area-concern-list {
+    border-top: 1px solid gray;
 }
 .sidebar-category-heading {
-    margin: 0;
+    margin: 0 0 0.2em 0;
     font-weight: bold;
 }
-#sidebar ul {
-    list-style-type: none;
-    padding: 0;
+
+/* Content Elements */
+article {
+    grid-column: 2;
+}
+.content-block {
+    background: white;
+    
 }
