@@ -1,10 +1,12 @@
+<!--The vaste majority of the actual html code can be found in the views.js file. 
+    It is injected into the website by the live server.-->
 <!DOCTYPE html>
 <html>
     <head>
         <title>BT ESG Comparison Tool</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-        <link rel="stylesheet" type="text/css" href="style.css">   
+        <link rel="stylesheet" type="text/css" href="style.css">
         
         <!-- Include Handlebars from a CDN -->
         <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
@@ -13,11 +15,16 @@
     </head>
 
     <body>
+        <!--The majority of the header is the only component in the file that is not injected by the live server.
+        The help icon on the header however, is inserted and changes based on the hash address.-->
         <header id="header">
             <a href="https://www.bt.com.au/" id="logo"><img src="images/bt_financial_logo.png" alt="BT logo"></a>
             <h1>ESG Comparison Tool</h1>
             <div id="help-control"></div>
         </header>
+
+        <!--Most of the content for the site is injected into this div.
+        This includes the sidebar and the main content.-->
         <div id='main'></div>  
     </body>
 </html>
