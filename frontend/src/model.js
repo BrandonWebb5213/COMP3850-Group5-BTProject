@@ -10,186 +10,186 @@ const Model = {
             {
                 id: "fund0",
                 name: "Fund 0",
-                desc: "...",
+                desc: "A short description of the fund...",
                 concerns: [
                     {
                         id: "concern0",
-                        desc: "...",
+                        desc: "A summary on the fund's stance in this area...",
                     },
                     {
                         id: "concern1",
-                        desc: "...",
+                        desc: "A summary on the fund's stance in this area...",
                     },
                     {
                         id: "concern2",
-                        desc: "...",
+                        desc: "A summary on the fund's stance in this area...",
                     },
                     {
                         id: "concern3",
-                        desc: "...",
+                        desc: "A summary on the fund's stance in this area...",
                     },
                     {
                         id: "concern4",
-                        desc: "...",
+                        desc: "A summary on the fund's stance in this area...",
                     },
                     {
                         id: "concern5",
-                        desc: "...",
+                        desc: "A summary on the fund's stance in this area...",
                     },
                 ],
             },
             {
                 id: "fund1",
                 name: "Fund 1",
-                desc: "...",
+                desc: "A short description of the fund...",
                 concerns: [
                     {
                         id: "concern0",
-                        desc: "...",
+                        desc: "A summary on the fund's stance in this area...",
                     },
                     {
                         id: "concern1",
-                        desc: "...",
+                        desc: "A summary on the fund's stance in this area...",
                     },
                     {
                         id: "concern2",
-                        desc: "...",
+                        desc: "A summary on the fund's stance in this area...",
                     },
                     {
                         id: "concern3",
-                        desc: "...",
+                        desc: "A summary on the fund's stance in this area...",
                     },
                     {
                         id: "concern4",
-                        desc: "...",
+                        desc: "A summary on the fund's stance in this area...",
                     },
                     {
                         id: "concern5",
-                        desc: "...",
+                        desc: "A summary on the fund's stance in this area...",
                     },
                 ],
             },
             {
                 id: "fund2",
                 name: "Fund 2",
-                desc: "...",
+                desc: "A short description of the fund...",
                 concerns: [
                     {
                         id: "concern0",
-                        desc: "...",
+                        desc: "A summary on the fund's stance in this area...",
                     },
                     {
                         id: "concern1",
-                        desc: "...",
+                        desc: "A summary on the fund's stance in this area...",
                     },
                     {
                         id: "concern2",
-                        desc: "...",
+                        desc: "A summary on the fund's stance in this area...",
                     },
                     {
                         id: "concern3",
-                        desc: "...",
+                        desc: "A summary on the fund's stance in this area...",
                     },
                     {
                         id: "concern4",
-                        desc: "...",
+                        desc: "A summary on the fund's stance in this area...",
                     },
                     {
                         id: "concern5",
-                        desc: "...",
+                        desc: "A summary on the fund's stance in this area...",
                     },
                 ],
             },
             {
                 id: "fund3",
                 name: "Fund 3",
-                desc: "...",
+                desc: "A short description of the fund...",
                 concerns: [
                     {
                         id: "concern0",
-                        desc: "...",
+                        desc: "A summary on the fund's stance in this area...",
                     },
                     {
                         id: "concern1",
-                        desc: "...",
+                        desc: "A summary on the fund's stance in this area...",
                     },
                     {
                         id: "concern2",
-                        desc: "...",
+                        desc: "A summary on the fund's stance in this area...",
                     },
                     {
                         id: "concern3",
-                        desc: "...",
+                        desc: "A summary on the fund's stance in this area...",
                     },
                     {
                         id: "concern4",
-                        desc: "...",
+                        desc: "A summary on the fund's stance in this area...",
                     },
                     {
                         id: "concern5",
-                        desc: "...",
+                        desc: "A summary on the fund's stance in this area...",
                     },
                 ],
             },
             {
                 id: "fund4",
                 name: "Fund 4",
-                desc: "...",
+                desc: "A short description of the fund...",
                 concerns: [
                     {
                         id: "concern0",
-                        desc: "...",
+                        desc: "A summary on the fund's stance in this area...",
                     },
                     {
                         id: "concern1",
-                        desc: "...",
+                        desc: "A summary on the fund's stance in this area...",
                     },
                     {
                         id: "concern2",
-                        desc: "...",
+                        desc: "A summary on the fund's stance in this area...",
                     },
                     {
                         id: "concern3",
-                        desc: "...",
+                        desc: "A summary on the fund's stance in this area...",
                     },
                     {
                         id: "concern4",
-                        desc: "...",
+                        desc: "A summary on the fund's stance in this area...",
                     },
                     {
                         id: "concern5",
-                        desc: "...",
+                        desc: "A summary on the fund's stance in this area...",
                     },
                 ],
             },
             {
                 id: "fund5",
                 name: "Fund 5",
-                desc: "...",
+                desc: "A short description of the fund...",
                 concerns: [
                     {
                         id: "concern0",
-                        desc: "...",
+                        desc: "A summary on the fund's stance in this area...",
                     },
                     {
                         id: "concern1",
-                        desc: "...",
+                        desc: "A summary on the fund's stance in this area...",
                     },
                     {
                         id: "concern2",
-                        desc: "...",
+                        desc: "A summary on the fund's stance in this area...",
                     },
                     {
                         id: "concern3",
-                        desc: "...",
+                        desc: "A summary on the fund's stance in this area...",
                     },
                     {
                         id: "concern4",
-                        desc: "...",
+                        desc: "A summary on the fund's stance in this area...",
                     },
                     {
                         id: "concern5",
-                        desc: "...",
+                        desc: "A summary on the fund's stance in this area...",
                     },
                 ],
             },
@@ -198,32 +198,32 @@ const Model = {
             {
                 id: "concern0",
                 name: "Concern 0",
-                desc: "...",
+                desc: "A short description of the concern...",
             },
             {
                 id: "concern1",
                 name: "Concern 1",
-                desc: "...",
+                desc: "A short description of the concern...",
             },
             {
                 id: "concern2",
                 name: "Concern 2",
-                desc: "...",
+                desc: "A short description of the concern...",
             },
             {
                 id: "concern3",
                 name: "Concern 3",
-                desc: "...",
+                desc: "A short description of the concern...",
             },
             {
                 id: "concern4",
                 name: "Concern 4",
-                desc: "...",
+                desc: "A short description of the concern...",
             },
             {
                 id: "concern5",
                 name: "Concern 5",
-                desc: "...",
+                desc: "A short description of the concern...",
             },
         ],
     }
