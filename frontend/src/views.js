@@ -160,7 +160,9 @@ const generateContent = (superfundList, concernList, selectedSuperfunds, selecte
             cards += generateFundCard(superfundList[i], concernList, selectedConcerns);
         }
     }
-    console.log(cards);
+    if (cards == "") {
+        return "<div class=\"content-block\">No superfunds currently selected. Select some in the sidebar.</div>"
+    }
     return cards;
 }
 
