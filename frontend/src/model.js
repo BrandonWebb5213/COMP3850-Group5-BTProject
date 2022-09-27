@@ -11,37 +11,187 @@ const Model = {
                 id: "fund0",
                 name: "Fund 0",
                 desc: "...",
-                concern1: "..."
+                concerns: [
+                    {
+                        id: "concern0",
+                        desc: "...",
+                    },
+                    {
+                        id: "concern1",
+                        desc: "...",
+                    },
+                    {
+                        id: "concern2",
+                        desc: "...",
+                    },
+                    {
+                        id: "concern3",
+                        desc: "...",
+                    },
+                    {
+                        id: "concern4",
+                        desc: "...",
+                    },
+                    {
+                        id: "concern5",
+                        desc: "...",
+                    },
+                ],
             },
             {
                 id: "fund1",
                 name: "Fund 1",
                 desc: "...",
-                concern1: "..."
+                concerns: [
+                    {
+                        id: "concern0",
+                        desc: "...",
+                    },
+                    {
+                        id: "concern1",
+                        desc: "...",
+                    },
+                    {
+                        id: "concern2",
+                        desc: "...",
+                    },
+                    {
+                        id: "concern3",
+                        desc: "...",
+                    },
+                    {
+                        id: "concern4",
+                        desc: "...",
+                    },
+                    {
+                        id: "concern5",
+                        desc: "...",
+                    },
+                ],
             },
             {
                 id: "fund2",
                 name: "Fund 2",
                 desc: "...",
-                concern1: "..."
+                concerns: [
+                    {
+                        id: "concern0",
+                        desc: "...",
+                    },
+                    {
+                        id: "concern1",
+                        desc: "...",
+                    },
+                    {
+                        id: "concern2",
+                        desc: "...",
+                    },
+                    {
+                        id: "concern3",
+                        desc: "...",
+                    },
+                    {
+                        id: "concern4",
+                        desc: "...",
+                    },
+                    {
+                        id: "concern5",
+                        desc: "...",
+                    },
+                ],
             },
             {
                 id: "fund3",
                 name: "Fund 3",
                 desc: "...",
-                concern1: "..."
+                concerns: [
+                    {
+                        id: "concern0",
+                        desc: "...",
+                    },
+                    {
+                        id: "concern1",
+                        desc: "...",
+                    },
+                    {
+                        id: "concern2",
+                        desc: "...",
+                    },
+                    {
+                        id: "concern3",
+                        desc: "...",
+                    },
+                    {
+                        id: "concern4",
+                        desc: "...",
+                    },
+                    {
+                        id: "concern5",
+                        desc: "...",
+                    },
+                ],
             },
             {
                 id: "fund4",
                 name: "Fund 4",
                 desc: "...",
-                concern1: "..."
+                concerns: [
+                    {
+                        id: "concern0",
+                        desc: "...",
+                    },
+                    {
+                        id: "concern1",
+                        desc: "...",
+                    },
+                    {
+                        id: "concern2",
+                        desc: "...",
+                    },
+                    {
+                        id: "concern3",
+                        desc: "...",
+                    },
+                    {
+                        id: "concern4",
+                        desc: "...",
+                    },
+                    {
+                        id: "concern5",
+                        desc: "...",
+                    },
+                ],
             },
             {
                 id: "fund5",
                 name: "Fund 5",
                 desc: "...",
-                concern1: "..."
+                concerns: [
+                    {
+                        id: "concern0",
+                        desc: "...",
+                    },
+                    {
+                        id: "concern1",
+                        desc: "...",
+                    },
+                    {
+                        id: "concern2",
+                        desc: "...",
+                    },
+                    {
+                        id: "concern3",
+                        desc: "...",
+                    },
+                    {
+                        id: "concern4",
+                        desc: "...",
+                    },
+                    {
+                        id: "concern5",
+                        desc: "...",
+                    },
+                ],
             },
         ],
         concerns: [

@@ -4,24 +4,24 @@ import * as views from './views.js'; // import the views file to use its exporte
 import {Model} from './model.js'; // import the data for superfunds and markets of concern.
 
 /**
- * A placeholder array of super fund names.
-*/
-let superfundList = ["Fund 1", "Fund 2", "Fund 3", "Fund 4", "Fund 5", "Fund 6"];
+ * Data model for list of superfunds.
+ */
+let superfundData = [];
 
 /**
- * A placeholder array of markets that may concern potential customers of super funds.
-*/
-let concernList = ["Concern 1", "Concern 2", "Concern 3", "Concern 4", "Concern 5", "Concern 6"];
+ * Data model for list of markets of concern.
+ */
+let concernData = [];
 
 /**
  * A list of what super funds have been selected in the sidebar.
  */
-let selectedSuperfunds = [0, 0, 0, 0, 0, 0];
+let selectedSuperfunds = [];
 
 /**
  * A list of what markets of concern have been selected in the sidebar.
  */
-let selectedConcerns = [0, 0, 0, 0, 0, 0];
+let selectedConcerns = [];
 
 /**
  * Checks the hash address of the site and then injects the corresponding data into the html document.
@@ -30,11 +30,11 @@ let selectedConcerns = [0, 0, 0, 0, 0, 0];
 function redraw() {
     let targetId = "main";
     if (window.location.hash == "#!/info") { // if the info box is currently open.
-        views.mainPage(targetId, superfundList, concernList, selectedSuperfunds, selectedConcerns);
+        views.mainPage(targetId, superfundData, concernData, selectedSuperfunds, selectedConcerns);
         views.infoPage();
     }
     else if (window.location.hash == "") { // if on the main screen without info box.
-        views.mainPage(targetId, superfundList, concernList, selectedSuperfunds, selectedConcerns);
+        views.mainPage(targetId, superfundData, concernData, selectedSuperfunds, selectedConcerns);
     }
     else { // if a wrong page is entered, an error code is presented.
         views.missingPage(targetId);
@@ -52,8 +52,8 @@ function redraw() {
  */
 function loadSelectedContent() {
     // load selected super fund data into array
-    for (let i = 0; i < superfundList.length; i++) {
-        let id = "fund" + i;
+    for (let i = 0; i < superfundData.length; i++) {
+        let id = superfundData[i].id;
         if (document.getElementById(id).checked) {
             selectedSuperfunds[i] = 1;
         }
@@ -63,8 +63,8 @@ function loadSelectedContent() {
     }
 
     // load selected markets of concern data into array
-    for (let i = 0; i < concernList.length; i++) {
-        let id = "concern" + i;
+    for (let i = 0; i < concernData.length; i++) {
+        let id = concernData[i].id;
         if (document.getElementById(id).checked) {
             selectedConcerns[i] = 1;
         }
@@ -96,7 +96,7 @@ function loadSessionStorage() {
     let target; // used to load each variable form session storage so that it can be validated
 
     // iterate through session storage of selected superfunds and apply to variable if not null
-    for(let i = 0; i < selectedSuperfunds.length; i++) {
+    for(let i = 0; i < superfundData.length; i++) {
         target = sessionStorage.getItem("selectedFunds" + i);
         // if session storage value is not null, load to respective variable
         if (target != null) {
@@ -108,7 +108,7 @@ function loadSessionStorage() {
     }
     
     // iterate through session storage of selected concerns and apply to variable if not null
-    for(let i = 0; i < selectedConcerns.length; i++) {
+    for(let i = 0; i < concernData.length; i++) {
         target = sessionStorage.getItem("selectedConcerns" + i);
         // if session storage value is not null, load to respective variable
         if (target != null) {
@@ -118,6 +118,14 @@ function loadSessionStorage() {
             selectedConcerns[i] = 0;
         }
     }
+}
+
+/**
+ * Loads the data from model.js and saves into local variables.
+ */
+function loadModel() {
+    superfundData = Model.data.superfunds;
+    concernData = Model.data.concerns;
 }
 
 /**
@@ -131,6 +139,7 @@ window.onhashchange = function () {
  * Runs the redraw function upon a load of the website.
  */
 window.onload = function() {
+    loadModel();
     loadSessionStorage();
     redraw();
 };

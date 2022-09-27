@@ -5,22 +5,22 @@ export {mainPage, infoPage, missingPage}; // export functions for use by main.js
  * This includes loading the sidebar and the main content of the site.
  * 
  * @param {*} targetId The ID in the html document to inject the content into.
- * @param {*} superfundList The array of super funds received from main.js. 
+ * @param {*} superfundData The array of super funds received from main.js. 
  *  Used to generate the content of the site.
- * @param {*} concernList The array of super funds received from main.js. 
+ * @param {*} concernData The array of super funds received from main.js. 
  *  Used to generate the content of the site.
  * @param {*} selectedSuperfunds The array of selected super funds received from main.js.
  *  Used to determine what super funds will appear in the content area.
  * @param {*} selectedConcerns The array of selected markets of concern received from main.js.
  *  Used to determing what markets of concern will appear in the content area.
  */
-function mainPage(targetId, superfundList, concernList, selectedSuperfunds, selectedConcerns) {
-    document.getElementById(targetId).innerHTML = generateSidebar(superfundList, concernList, selectedSuperfunds, selectedConcerns) +
-    "<article id=\"content-area\">" + generateContent(superfundList, concernList, selectedSuperfunds, selectedConcerns) + "<article>";
+function mainPage(targetId, superfundData, concernData, selectedSuperfunds, selectedConcerns) {
+    document.getElementById(targetId).innerHTML = generateSidebar(superfundData, concernData, selectedSuperfunds, selectedConcerns) +
+    "<article id=\"content-area\">" + generateContent(superfundData, concernData, selectedSuperfunds, selectedConcerns) + "<article>";
     document.getElementById("help-control").innerHTML = "<a href=\"./#!/info\"" +
         "class=\"help-icon\"" + 
         "alt=\"help information\">?</a>";
-    generateContent(superfundList, concernList, selectedSuperfunds, selectedConcerns);
+    generateContent(superfundData, concernData, selectedSuperfunds, selectedConcerns);
 }
 
 /**
@@ -58,9 +58,9 @@ function missingPage(targetId) {
  * The various categories of super funds are loaded as a form by the generateSuperfundList 
  * and generateConcernList functions.
  * 
- * @param {*} superfundList The array of super funds received from main.js. 
+ * @param {*} superfundData The array of super funds received from main.js. 
  *  Used to generate the content of the site.
- * @param {*} concernList The array of markets of concern received from main.js. 
+ * @param {*} concernData The array of markets of concern received from main.js. 
  *  Used to generate the content of the site.
  * @param {*} selectedSuperfunds The array of selected super funds received from main.js.
  *  Used to determine what super funds will appear in the content area.
@@ -68,15 +68,15 @@ function missingPage(targetId) {
  *  Used to determing what markets of concern will appear in the content area.
  * @returns The content of the sidebar to use for injection by other functions.
  */
-const generateSidebar = (superfundList, concernList, selectedSuperfunds, selectedConcerns) => {
+const generateSidebar = (superfundData, concernData, selectedSuperfunds, selectedConcerns) => {
     return "<form id=\"sidebar\">" +
         "<div id=\"superfund-list\" class=\"sidebar-list\">" +
             "<p class=\"sidebar-category-heading\">Super Funds</p>" +
-            generateSuperfundList(superfundList, selectedSuperfunds) +
+            generateSuperfundList(superfundData, selectedSuperfunds) +
         "</div>" +
         "<div id=\"area-concern-list\" class=\"sidebar-list\">" +
             "<p class=\"sidebar-category-heading\">Areas of Concern</p>" +
-            generateConcernList(concernList , selectedConcerns) +
+            generateConcernList(concernData, selectedConcerns) +
         "</div>" +
     "</form>";
 }
@@ -84,17 +84,17 @@ const generateSidebar = (superfundList, concernList, selectedSuperfunds, selecte
 /**
  * Generate a list of checkboxes representing super funds for the sidebar.
  * 
- * @param {*} superfundList The array of super funds received from main.js. 
+ * @param {*} superfundData The array of super funds received from main.js. 
  *  Used to generate the content of the site.
  * @param {*} selectedSuperfunds The array of selected super funds received from main.js.
  *  Used to determine what super funds will appear in the content area.
  * @returns A list of checkboxes representing the various super funds.
  */
-const generateSuperfundList = (superfundList, selectedSuperfunds) => {
+const generateSuperfundList = (superfundData, selectedSuperfunds) => {
     let result = "";
     let numFunds = 0;
-    for (const superfund of superfundList) {
-        let tag = "fund" + numFunds;
+    for (const superfund of superfundData) {
+        let tag = superfund.id;
         let selected = "";
         if (selectedSuperfunds[numFunds] == 1) {
             selected = "checked";
@@ -106,7 +106,7 @@ const generateSuperfundList = (superfundList, selectedSuperfunds) => {
             "onchange=\"this.form.requestSubmit()\"" +
             selected + ">";
 
-        let label = "<label for=\"" + tag + "\">" + superfund + "</label>";
+        let label = "<label for=\"" + tag + "\">" + superfund.name + "</label>";
         result += input + label + "<br>";
         numFunds += 1;
     }
@@ -116,17 +116,17 @@ const generateSuperfundList = (superfundList, selectedSuperfunds) => {
 /**
  * Generate a list of checkboxes representing areas of concern for the sidebar.
  * 
- * @param {*} concernList The array of areas of concern received from main.js. 
+ * @param {*} concernData The array of areas of concern received from main.js. 
  *  Used to generate the content of the site.
  * @param {*} selectedConcerns The array of selected markets of concern received from main.js.
  *  Used to determine what markets of concern will appear in the content area.
  * @returns A list of checkboxes representing the various markets of concern.
  */
-const generateConcernList = (concernList, selectedConcerns) => {
+const generateConcernList = (concernData, selectedConcerns) => {
     let result = "";
     let numConcerns = 0;
-    for (const concern of concernList) {
-        let tag = "concern" + numConcerns;
+    for (const concern of concernData) {
+        let tag = concern.id;
         let selected = "";
         if (selectedConcerns[numConcerns] == 1) {
             selected = "checked";
@@ -138,7 +138,7 @@ const generateConcernList = (concernList, selectedConcerns) => {
             "onchange=\"this.form.requestSubmit()\"" +
             selected + ">";
             
-        let label = "<label for=\"" + tag + "\">" + concern + "</label>";
+        let label = "<label for=\"" + tag + "\">" + concern.name + "</label>";
         result += input + label + "<br>";
         numConcerns += 1;
     }
@@ -148,16 +148,16 @@ const generateConcernList = (concernList, selectedConcerns) => {
 /**
  * Generate the content of the site as a list of info cards on each selected superfund.
  * 
- * @param {*} superfundList The array of super funds received from main.js. 
- * @param {*} concernList The array of super funds received from main.js. 
+ * @param {*} superfundData The array of super funds received from main.js. 
+ * @param {*} concernData The array of super funds received from main.js. 
  * @param {*} selectedSuperfunds The array of selected super funds received from main.js.
  * @param {*} selectedConcerns The array of selected markets of concern received from main.js.
  */
-const generateContent = (superfundList, concernList, selectedSuperfunds, selectedConcerns) => {
+const generateContent = (superfundData, concernData, selectedSuperfunds, selectedConcerns) => {
     let cards = "";
-    for (let i = 0; i < superfundList.length; i++) {
+    for (let i = 0; i < superfundData.length; i++) {
         if (selectedSuperfunds[i] == 1) {
-            cards += generateFundCard(superfundList[i], concernList, selectedConcerns);
+            cards += generateFundCard(superfundData[i], concernData, selectedConcerns);
         }
     }
     if (cards == "") {
@@ -173,13 +173,15 @@ const generateContent = (superfundList, concernList, selectedSuperfunds, selecte
  * @param {*} concernList A list of all markets of concern.
  * @param {*} selectedConcerns A list of all markets of concern that are currently selected.
  */
-const generateFundCard = (superfund, concernList, selectedConcerns) => {
+const generateFundCard = (superfund, concernData, selectedConcerns) => {
     let result = "<div id=\"fund-card\" class=\"content-block\">" +
-    "<div class=\"content-block-heading\">" + superfund + "</div><br>";
-    for (let i = 0; i < concernList.length; i++) {
+    "<div class=\"content-block-heading\">" + superfund.name + "</div>" +
+    "<div>" + superfund.desc + "</div><br>";
+    for (let i = 0; i < concernData.length; i++) {
         if (selectedConcerns[i] == 1) {
-            let id = superfund + "-subheading-" + i;
-            result += "<div class=\"content-block-subheading\" id=\"" + id + "\">" + concernList[i] + "</div><br>";
+            let id = superfund.id + "-subheading-" + i;
+            result += "<div class=\"content-block-subheading\" id=\"" + id + "\">" + concernData[i].name + "</div>" +
+            "<div>" + superfund.concerns[i].desc + "</div><br>";
         }
     }
     return result + "</div>";
