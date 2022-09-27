@@ -1,6 +1,8 @@
 import * as views from './views.js'; // import the views file to use its exported functions.
     // this file is where most of the html code is placed.
 
+import {Model} from './model.js'; // import the data for superfunds and markets of concern.
+
 /**
  * A placeholder array of super fund names.
 */
