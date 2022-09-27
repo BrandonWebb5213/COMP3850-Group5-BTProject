@@ -33,7 +33,9 @@ function mainPage(targetId, superfundData, concernData, selectedSuperfunds, sele
     // Inject the help dialogue box into the content area of the site
     document.getElementById("content-area").innerHTML = "<div id=\"help-box\" class=\"content-block\">" +
     "<div id=\"help-heading\" class=\"content-block-heading\">Information on the ESG Comparison Tool</div>" +
-    "There will be some information about what the tool does. This includes an explanation of ESGs and BT Financial." +
+    "This tool enables you to view and compare the ESG policies of superfunds in the Australian market.<br>" +
+    "You can edit your search settings using the sidebar on the left of the screen.<br>" +
+    "Select any superfunds you are interested in, then select any areas of concern to see each fund's respective policies on them." +
     "</div>" + document.getElementById("content-area").innerHTML;
 
     // Inject close help icon into site. 
