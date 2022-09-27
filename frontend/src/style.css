@@ -87,8 +87,8 @@ article {
 .content-block {
     background: white;
     width: 50em;
-    margin: 10px 10px 10px 10px;
-    padding: 10px 10px 10px 10px;
+    margin: 0.5em 0.5em 0.5em 0.5em;
+    padding: 0.7em 0.7em 0.7em 0.7em;
     border: 1px solid black;
 }
 .content-block-heading {
@@ -102,6 +102,10 @@ article {
 }
 #help-box {
     border-color: rgb(119, 56, 56);
+    border-radius: 1em;
+    margin-left: 0;
+    margin-right: 0;
+    width: 51em;
 }
 #help-heading {
     color: rgb(119, 56, 56);
