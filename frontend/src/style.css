@@ -97,6 +97,13 @@ article {
     border-bottom: 1px solid black;
     margin: 0 0 0.5em 0;
 }
-.content-block-subheading{
+.content-block-subheading {
     font-weight: bold;
+}
+#help-box {
+    border-color: rgb(119, 56, 56);
+}
+#help-heading {
+    color: rgb(119, 56, 56);
+    border-color: rgb(119, 56, 56);
 }

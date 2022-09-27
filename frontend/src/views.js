@@ -31,8 +31,8 @@ function mainPage(targetId, superfundData, concernData, selectedSuperfunds, sele
  */
  function infoPage() {
     // Inject the help dialogue box into the content area of the site
-    document.getElementById("content-area").innerHTML = "<div id=\"help-dialogue\" class=\"content-block\">" +
-    "<div class=\"content-block-heading\">Information on the ESG Comparison Tool</div>" +
+    document.getElementById("content-area").innerHTML = "<div id=\"help-box\" class=\"content-block\">" +
+    "<div id=\"help-heading\" class=\"content-block-heading\">Information on the ESG Comparison Tool</div>" +
     "There will be some information about what the tool does. This includes an explanation of ESGs and BT Financial." +
     "</div>" + document.getElementById("content-area").innerHTML;
 
