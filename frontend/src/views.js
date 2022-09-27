@@ -1,27 +1,6 @@
 export {infoPage, mainPage, missingPage}; // export functions for use by main.js
 
 /**
- * Html code for the site when the info box is open.
- * This is run after the mainPage function and will run in conjunction with it.
- * It will open up the info box in content area of the site, as well as
- * change the help icon in the header into a 'close help box' icon.
- */
-function infoPage() {
-    // Inject the help dialogue box into the content area of the site
-    document.getElementById("content-area").innerHTML = "<div id=\"help-dialogue\" class=\"content-block\">" +
-    "<div class=\"content-block-heading\">Information on the ESG Comparison Tool</div><br>" +
-    "There will be some information about what the tool does. This includes an explanation of ESGs and BT Financial."
-    "</div>";
-
-    // Inject close help icon into site. 
-        // This will navigate back to the main page and close the help box.
-    document.getElementById("help-control").innerHTML = "<a href=\".\/\"" +
-        "class=\"help-icon\"" +
-        "id=\"help-close-icon\"" + 
-        "alt=\"close help menu\">?<div id=\"little-x\">x</div></a>"
-}
-
-/**
  * Loads the content of the site into the main div.
  * This includes loading the sidebar and the main content of the site.
  * 
@@ -41,6 +20,27 @@ function mainPage(targetId, superfundList, concernList, selectedSuperfunds, sele
     document.getElementById("help-control").innerHTML = "<a href=\"./#!/info\"" +
         "class=\"help-icon\"" + 
         "alt=\"help information\">?</a>"
+}
+
+/**
+ * Html code for the site when the info box is open.
+ * This is run after the mainPage function and will run in conjunction with it.
+ * It will open up the info box in content area of the site, as well as
+ * change the help icon in the header into a 'close help box' icon.
+ */
+ function infoPage() {
+    // Inject the help dialogue box into the content area of the site
+    document.getElementById("content-area").innerHTML = "<div id=\"help-dialogue\" class=\"content-block\">" +
+    "<div class=\"content-block-heading\">Information on the ESG Comparison Tool</div><br>" +
+    "There will be some information about what the tool does. This includes an explanation of ESGs and BT Financial." +
+    "</div>";
+
+    // Inject close help icon into site. 
+        // This will navigate back to the main page and close the help box.
+    document.getElementById("help-control").innerHTML = "<a href=\".\/\"" +
+        "class=\"help-icon\"" +
+        "id=\"help-close-icon\"" + 
+        "alt=\"close help menu\">?<div id=\"little-x\">x</div></a>"
 }
 
 /**
@@ -68,7 +68,7 @@ function missingPage(targetId) {
  * @returns The content of the sidebar to use for injection by other functions.
  */
 const generateSidebar = (superfundList, concernList, selectedSuperfunds, selectedConcerns) => {
-    return "<form id=\"sidebar\" onSubmit=\"loadSelectedContent()\">" +
+    return "<form id=\"sidebar\">" +
         "<div id=\"superfund-list\" class=\"sidebar-list\">" +
             "<p class=\"sidebar-category-heading\">Super Funds</p>" +
             generateSuperfundList(superfundList, selectedSuperfunds) +
@@ -92,6 +92,7 @@ const generateSidebar = (superfundList, concernList, selectedSuperfunds, selecte
 const generateSuperfundList = (superfundList, selectedSuperfunds) => {
     let result = "";
     let numFunds = 0;
+    console.log(selectedSuperfunds);
     for (const superfund of superfundList) {
         let tag = "fund" + numFunds;
         let selected = "";
@@ -101,8 +102,8 @@ const generateSuperfundList = (superfundList, selectedSuperfunds) => {
         let input = "<input type=\"checkbox\" " +
             "id=\"" + tag + "\" " +
             "name=\"" + tag + "\" " +
-            "value=\"" + 1 + "\"" + 
-            "onchange=\"this.form.submit()\""+
+            "value=\"" + 1 + "\"" +
+            "onchange=\"this.form.requestSubmit()\"" +
             selected + ">";
 
         let label = "<label for=\"" + tag + "\">" + superfund + "</label>";
@@ -124,6 +125,7 @@ const generateSuperfundList = (superfundList, selectedSuperfunds) => {
 const generateConcernList = (concernList, selectedConcerns) => {
     let result = "";
     let numConcerns = 0;
+    console.log(selectedConcerns);
     for (const concern of concernList) {
         let tag = "concern" + numConcerns;
         let selected = "";
@@ -133,8 +135,8 @@ const generateConcernList = (concernList, selectedConcerns) => {
         let input = "<input type=\"checkbox\" " +
             "id=\"" + tag + "\" " +
             "name=\"" + tag + "\" " +
-            "value=\"" + 1 + "\" " + 
-            "onchange=\"this.form.submit()\"" +
+            "value=\"" + 1 + "\" " +
+            "onchange=\"this.form.requestSubmit()\"" +
             selected + ">";
             
         let label = "<label for=\"" + tag + "\">" + concern + "</label>";
