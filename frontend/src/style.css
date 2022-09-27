@@ -88,7 +88,7 @@ article {
 }
 .content-block {
     background: white;
-    width: 50%;
+    width: 50em;
     margin: 10px 10px 10px 10px;
     padding: 10px 10px 10px 10px;
     border: 1px solid black;

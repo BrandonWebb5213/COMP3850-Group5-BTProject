@@ -1,4 +1,4 @@
-export {infoPage, mainPage, missingPage}; // export functions for use by main.js
+export {mainPage, infoPage, missingPage}; // export functions for use by main.js
 
 /**
  * Loads the content of the site into the main div.
@@ -7,7 +7,7 @@ export {infoPage, mainPage, missingPage}; // export functions for use by main.js
  * @param {*} targetId The ID in the html document to inject the content into.
  * @param {*} superfundList The array of super funds received from main.js. 
  *  Used to generate the content of the site.
- * @param {*} concernList The array of markets of concern received from main.js. 
+ * @param {*} concernList The array of super funds received from main.js. 
  *  Used to generate the content of the site.
  * @param {*} selectedSuperfunds The array of selected super funds received from main.js.
  *  Used to determine what super funds will appear in the content area.
@@ -16,10 +16,11 @@ export {infoPage, mainPage, missingPage}; // export functions for use by main.js
  */
 function mainPage(targetId, superfundList, concernList, selectedSuperfunds, selectedConcerns) {
     document.getElementById(targetId).innerHTML = generateSidebar(superfundList, concernList, selectedSuperfunds, selectedConcerns) +
-    "<article id=\"content-area\"><article>";
+    "<article id=\"content-area\">" + generateContent(superfundList, concernList, selectedSuperfunds, selectedConcerns) + "<article>";
     document.getElementById("help-control").innerHTML = "<a href=\"./#!/info\"" +
         "class=\"help-icon\"" + 
-        "alt=\"help information\">?</a>"
+        "alt=\"help information\">?</a>";
+    generateContent(superfundList, concernList, selectedSuperfunds, selectedConcerns);
 }
 
 /**
@@ -30,7 +31,7 @@ function mainPage(targetId, superfundList, concernList, selectedSuperfunds, sele
  */
  function infoPage() {
     // Inject the help dialogue box into the content area of the site
-    document.getElementById("content-area").innerHTML = "<div id=\"help-dialogue\" class=\"content-block\">" +
+    document.getElementById("content-area").innerHTML += "<div id=\"help-dialogue\" class=\"content-block\">" +
     "<div class=\"content-block-heading\">Information on the ESG Comparison Tool</div><br>" +
     "There will be some information about what the tool does. This includes an explanation of ESGs and BT Financial." +
     "</div>";
@@ -40,7 +41,7 @@ function mainPage(targetId, superfundList, concernList, selectedSuperfunds, sele
     document.getElementById("help-control").innerHTML = "<a href=\".\/\"" +
         "class=\"help-icon\"" +
         "id=\"help-close-icon\"" + 
-        "alt=\"close help menu\">?<div id=\"little-x\">x</div></a>"
+        "alt=\"close help menu\">?<div id=\"little-x\">x</div></a>";
 }
 
 /**
@@ -92,7 +93,6 @@ const generateSidebar = (superfundList, concernList, selectedSuperfunds, selecte
 const generateSuperfundList = (superfundList, selectedSuperfunds) => {
     let result = "";
     let numFunds = 0;
-    console.log(selectedSuperfunds);
     for (const superfund of superfundList) {
         let tag = "fund" + numFunds;
         let selected = "";
@@ -125,7 +125,6 @@ const generateSuperfundList = (superfundList, selectedSuperfunds) => {
 const generateConcernList = (concernList, selectedConcerns) => {
     let result = "";
     let numConcerns = 0;
-    console.log(selectedConcerns);
     for (const concern of concernList) {
         let tag = "concern" + numConcerns;
         let selected = "";
@@ -144,4 +143,42 @@ const generateConcernList = (concernList, selectedConcerns) => {
         numConcerns += 1;
     }
     return result;
+}
+
+/**
+ * Generate the content of the site as a list of info cards on each selected superfund.
+ * 
+ * @param {*} superfundList The array of super funds received from main.js. 
+ * @param {*} concernList The array of super funds received from main.js. 
+ * @param {*} selectedSuperfunds The array of selected super funds received from main.js.
+ * @param {*} selectedConcerns The array of selected markets of concern received from main.js.
+ */
+const generateContent = (superfundList, concernList, selectedSuperfunds, selectedConcerns) => {
+    let cards = "";
+    for (let i = 0; i < superfundList.length; i++) {
+        if (selectedSuperfunds[i] == 1) {
+            cards += generateFundCard(superfundList[i], concernList, selectedConcerns);
+        }
+    }
+    console.log(cards);
+    return cards;
+}
+
+/**
+ * Generates html code for the given superfund's info card.
+ * 
+ * @param {*} superfund The superfund to create an info card for.
+ * @param {*} concernList A list of all markets of concern.
+ * @param {*} selectedConcerns A list of all markets of concern that are currently selected.
+ */
+const generateFundCard = (superfund, concernList, selectedConcerns) => {
+    let result = "<div id=\"fund-card\" class=\"content-block\">" +
+    "<div class=\"content-block-heading\">" + superfund + "</div><br>";
+    for (let i = 0; i < concernList.length; i++) {
+        if (selectedConcerns[i] == 1) {
+            let id = superfund + "-subheading-" + i;
+            result += "<div class=\"content-block-subheading\" id=\"" + id + "\">" + concernList[i] + "</div><br>";
+        }
+    }
+    return result + "</div>";
 }
