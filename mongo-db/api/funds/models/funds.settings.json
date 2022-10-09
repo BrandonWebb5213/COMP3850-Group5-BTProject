@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "funds",
+  "info": {
+    "name": "Funds",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "concerns": {
+      "type": "json"
+    },
+    "description": {
+      "type": "text"
+    },
+    "fundID": {
+      "type": "integer"
+    }
+  }
+}
