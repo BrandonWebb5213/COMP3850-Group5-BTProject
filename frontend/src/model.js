@@ -1,5 +1,8 @@
 export {Model}; // export the data for use in main.js
 
+let baseURL = ""    //once the webdomain is setup we will change this to pull from there
+
+
 /**
  * Defines the data for each superfund and market of concern.
  * When the backend has been integrated, the data will be fetched from there and not defined here.

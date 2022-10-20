@@ -23,6 +23,19 @@
     },
     "fundID": {
       "type": "integer"
+    },
+    "Assets": {
+      "type": "decimal"
+    },
+    "Members": {
+      "type": "integer",
+      "required": false
+    },
+    "URL": {
+      "type": "string"
+    },
+    "Type": {
+      "type": "string"
     }
   }
 }
