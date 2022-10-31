@@ -1,6 +1,6 @@
 export {Model}; // export the data for use in main.js
 
-let baseURL = ""    //once the webdomain is setup we will change this to pull from there
+let baseURL = "http://localhost:1337/funds"    //once the webdomain is setup we will change this to pull from there
 
 
 /**
@@ -8,6 +8,25 @@ let baseURL = ""    //once the webdomain is setup we will change this to pull fr
  * When the backend has been integrated, the data will be fetched from there and not defined here.
  */
 const Model = {
+    loadData: () => {
+        fetch(baseURL)
+        .then((res) => {
+            console.log(res)
+            return res.json();
+        })
+        .then((Data) => {
+            //console.log("data: "+JSON.stringify(Data))
+            Model.funds.superfunds = Data;
+            console.log(Model.funds.superfunds)
+            const event = new CustomEvent("modelUpdated");
+            window.dispatchEvent(event);
+        })
+    },
+    
+    funds: {
+        superfunds: []
+    },
+
     data: {
         superfunds: [
             {

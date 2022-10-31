@@ -126,6 +126,11 @@ function loadSessionStorage() {
 function loadModel() {
     superfundData = Model.data.superfunds;
     concernData = Model.data.concerns;
+    let data = Model.funds.superfunds
+    console.log("data" , data)
+    console.log("superfunddata", superfundData)
+    
+    console.log("concerndata", concernData)
 }
 
 /**
@@ -139,7 +144,10 @@ window.onhashchange = function () {
  * Runs the redraw function upon a load of the website.
  */
 window.onload = function() {
+    Model.loadData();
     loadModel();
-    loadSessionStorage();
+    loadSessionStorage();    
     redraw();
 };
+
+window.addEventListener("modelUpdated", loadModel);
