@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_issue_soc_types",
+  "info": {
+    "name": "SocType",
+    "icon": "address-card"
+  },
+  "options": {},
+  "attributes": {
+    "catSocTypeIcon": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "catSocTypeDesc": {
+      "type": "text"
+    },
+    "catSocTypeLink": {
+      "type": "string"
+    },
+    "catSocType": {
+      "type": "enumeration",
+      "enum": [
+        "test1",
+        "test2",
+        "test3"
+      ]
+    }
+  }
+}

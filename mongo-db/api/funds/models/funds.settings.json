@@ -12,17 +12,14 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
+    "fundName": {
       "type": "string"
     },
     "concerns": {
       "type": "json"
     },
-    "description": {
+    "fundIntro": {
       "type": "text"
-    },
-    "fundID": {
-      "type": "integer"
     },
     "Assets": {
       "type": "decimal"
@@ -31,11 +28,43 @@
       "type": "integer",
       "required": false
     },
-    "URL": {
+    "fundLink": {
       "type": "string"
     },
-    "Type": {
-      "type": "string"
+    "fundType": {
+      "type": "enumeration",
+      "enum": [
+        "Retail",
+        "Industry",
+        "PublicSector"
+      ]
+    },
+    "fundLogo": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "fundEnvType": {
+      "type": "component",
+      "repeatable": true,
+      "component": "issue.env-type"
+    },
+    "fundGovType": {
+      "type": "component",
+      "repeatable": true,
+      "component": "issue.gov-type"
+    },
+    "fundSocType": {
+      "type": "component",
+      "repeatable": true,
+      "component": "issue.soc-type"
     }
   }
 }

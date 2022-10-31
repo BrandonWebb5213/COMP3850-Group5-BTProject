@@ -15,7 +15,6 @@ const Model = {
             return res.json();
         })
         .then((Data) => {
-            //console.log("data: "+JSON.stringify(Data))
             Model.funds.superfunds = Data;
             console.log(Model.funds.superfunds)
             const event = new CustomEvent("modelUpdated");

@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_issue_env_types",
+  "info": {
+    "name": "EnvType",
+    "icon": "ad"
+  },
+  "options": {},
+  "attributes": {
+    "catEnvTypeIcon": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "catEnvTypeDesc": {
+      "type": "text"
+    },
+    "catEnvTypeLink": {
+      "type": "string"
+    },
+    "catEnvType": {
+      "type": "enumeration",
+      "enum": [
+        "test1",
+        "test2",
+        "test3"
+      ]
+    }
+  }
+}

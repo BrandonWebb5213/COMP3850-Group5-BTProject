@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_issue_gov_types",
+  "info": {
+    "name": "GovType",
+    "icon": "address-book"
+  },
+  "options": {},
+  "attributes": {
+    "catGovTypeIcon": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "catGovTypeDesc": {
+      "type": "text"
+    },
+    "catGovTypeLink": {
+      "type": "string"
+    },
+    "catGovType": {
+      "type": "enumeration",
+      "enum": [
+        "test1",
+        "test2",
+        "test3"
+      ]
+    }
+  }
+}
