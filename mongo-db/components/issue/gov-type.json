@@ -2,7 +2,8 @@
   "collectionName": "components_issue_gov_types",
   "info": {
     "name": "GovType",
-    "icon": "address-book"
+    "icon": "address-book",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -27,9 +28,22 @@
     "catGovType": {
       "type": "enumeration",
       "enum": [
-        "test1",
-        "test2",
-        "test3"
+        "Board_diversity",
+        "Corporate_culture",
+        "Corruption_and_bribery",
+        "Executive_pay",
+        "Tax_transparency",
+        "Political_engagement",
+        "Whistleblowing"
+      ]
+    },
+    "catGovTypeRate": {
+      "type": "enumeration",
+      "enum": [
+        "Notavailable",
+        "Positive",
+        "Negative",
+        "Unclear"
       ]
     }
   }

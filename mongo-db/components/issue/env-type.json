@@ -2,7 +2,8 @@
   "collectionName": "components_issue_env_types",
   "info": {
     "name": "EnvType",
-    "icon": "ad"
+    "icon": "ad",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -27,9 +28,22 @@
     "catEnvType": {
       "type": "enumeration",
       "enum": [
-        "test1",
-        "test2",
-        "test3"
+        "Air_and_water_quality",
+        "Biodiversity",
+        "Climate_change",
+        "Carbon_management",
+        "Renewable_energy",
+        "Sustainable_land_use",
+        "Waste_management_and_pollution"
+      ]
+    },
+    "catEnvTypeRate": {
+      "type": "enumeration",
+      "enum": [
+        "Notavailable",
+        "Positive",
+        "Negative",
+        "Unclear"
       ]
     }
   }

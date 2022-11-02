@@ -2,7 +2,8 @@
   "collectionName": "components_issue_soc_types",
   "info": {
     "name": "SocType",
-    "icon": "address-card"
+    "icon": "address-card",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -27,9 +28,22 @@
     "catSocType": {
       "type": "enumeration",
       "enum": [
-        "test1",
-        "test2",
-        "test3"
+        "Conflict_zones_and_contributions_to_war",
+        "Diversity",
+        "First_Nations_Reconciliation",
+        "Health_and_safety",
+        "Human_rights",
+        "Labour_standards",
+        "Modern_slavery"
+      ]
+    },
+    "catSocTypeRate": {
+      "type": "enumeration",
+      "enum": [
+        "Notavailable",
+        "Positive",
+        "Negative",
+        "Unclear"
       ]
     }
   }
