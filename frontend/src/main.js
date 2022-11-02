@@ -31,7 +31,7 @@ function redraw() {
     let targetId = "main";
     if (window.location.hash == "#!/info") { // if the info box is currently open.
         views.mainPage(targetId, superfundData, concernData, selectedSuperfunds, selectedConcerns);
-        views.infoPage();
+        views.infoPage(concernData, selectedConcerns);
     }
     else if (window.location.hash == "") { // if on the main screen without info box.
         views.mainPage(targetId, superfundData, concernData, selectedSuperfunds, selectedConcerns);

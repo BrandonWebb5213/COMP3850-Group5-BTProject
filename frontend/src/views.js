@@ -29,13 +29,29 @@ function mainPage(targetId, superfundData, concernData, selectedSuperfunds, sele
  * It will open up the info box in content area of the site, as well as
  * change the help icon in the header into a 'close help box' icon.
  */
- function infoPage() {
+ function infoPage(concernData, selectedConcerns) {
+    // Find out what areas of concern are currently selected so that description of each can be shown
+    let concernDescriptions = "";
+    for (let i = 0; i < concernData.length; i++) {
+        if (selectedConcerns[i] == 1) {
+            concernDescriptions += "<br><br><div class=\"content-block-subheading\">" + 
+            "<img src=\"images/icons/world.png\" class=\"concern-icon\">" + concernData[i].name + ":</div>" + 
+            concernData[i].desc;
+        }
+    }
+    if (concernDescriptions == "") {
+        concernDescriptions = 
+            "<br><br>A description of each selected area of concern can be found " 
+            + "inside this help box in case you need an explanation of them.";
+    }
+
     // Inject the help dialogue box into the content area of the site
     document.getElementById("content-area").innerHTML = "<div id=\"help-box\" class=\"content-block\">" +
     "<div id=\"help-heading\" class=\"content-block-heading\">Information on the ESG Comparison Tool</div>" +
     "This tool enables you to view and compare the ESG policies of superfunds in the Australian market.<br>" +
     "You can edit your search settings using the sidebar on the left of the screen.<br>" +
     "Select any superfunds you are interested in, then select any areas of concern to see each fund's respective policies on them." +
+    concernDescriptions +
     "</div>" + document.getElementById("content-area").innerHTML;
 
     // Inject close help icon into site. 
