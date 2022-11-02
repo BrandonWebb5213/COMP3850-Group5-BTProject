@@ -90,6 +90,7 @@ h1 {
     margin: 1em 0 0 0.5em;
     background-color: #2d2d2d;
     color: white;
+    border-radius: 7px;
 }
 #clear-button:hover {
     background-color: #212121;
@@ -149,16 +150,16 @@ article {
     vertical-align: -10%;
 }
 .concern-rating-0 {
-    background-color: rgb(224, 224, 224);
+    background: radial-gradient(#e0e0e0,#8e8e8e);
 }
 .concern-rating-1 {
-    background-color: rgb(191, 0, 0);
+    background: radial-gradient(#d31717,#800e0e);
 }
 .concern-rating-2 {
-    background-color: rgb(225, 165, 0);
+    background: radial-gradient(#e1a500,#8f6c04);
 }
 .concern-rating-3 {
-    background-color: rgb(22, 191, 0);
+    background: radial-gradient(#16bf00,#015e04);
 }
 
 /* Welcome Page */
