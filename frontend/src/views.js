@@ -51,6 +51,11 @@ function mainPage(targetId, superfundData, concernData, selectedSuperfunds, sele
     "This tool enables you to view and compare the ESG policies of superfunds in the Australian market.<br>" +
     "You can edit your search settings using the sidebar on the left of the screen.<br>" +
     "Select any superfunds you are interested in, then select any areas of concern to see each fund's respective policies on them." +
+    "<br><br>Each superfund is given a rating based on its policies in each area of concern:" +
+    "<br>" + generateRatingIconHelp(3) + " Above average" + 
+    "<br>" + generateRatingIconHelp(2) + " Average" + 
+    "<br>" + generateRatingIconHelp(1) + " Below average" + 
+    "<br>" + generateRatingIconHelp(0) + " No policies could be found" + 
     concernDescriptions +
     "</div>" + document.getElementById("content-area").innerHTML;
 
@@ -96,6 +101,7 @@ const generateSidebar = (superfundData, concernData, selectedSuperfunds, selecte
             "<p class=\"sidebar-category-heading\">Areas of Concern</p>" +
             generateConcernList(concernData, selectedConcerns) +
         "</div>" +
+        "<button id=\"clear-button\" type=\"button\">Clear Search</button>" +
     "</form>";
 }
 
@@ -184,11 +190,12 @@ const generateContent = (superfundData, concernData, selectedSuperfunds, selecte
         return "<div class=\"content-block\" id=\"welcome-page\">" + 
         "<img src = \"images/landscape_urbanpark.png\" id=\"welcome-image\">" +
         "<br><div class=\"content-block-subheading\">Welcome to the BT Financial ESG Comparison Tool.</div>" +
-        "<br><div class=\"welcome-content\">In the market, there are a number of different industries that are a source of controversy. " +
-        "<br>Some superfunds avoid investing in these industries so that they can be seen as more ethically aware than their competitors. " + 
-        "A superfund's ESG (Environmental, Social and Governance) policies outline what markets each superfund will avoid." +
+        "<br><div class=\"welcome-content\">Each industry in the market has varying levels of controversy. " +
+        " Some superfunds avoid investing in particularly controversial industries so that they can be seen as more ethically aware than their competitors. " + 
+        "A superfund's ESG (Environmental, Social and Governance) policies outline which industries each superfund will avoid investing in." +
         "<br><br>The ESG comparison tool allows consumers to view the respective ESG policies of superfunds in the Australian market, " + 
         "so that they can make more informed decisions when choosing a superfund." +
+        "<br><br>To begin your search, select some superfunds and areas of concern in the sidebar on the left-side of your screen." +
         "</div>";
     }
     return cards;
@@ -210,9 +217,36 @@ const generateFundCard = (superfund, concernData, selectedConcerns) => {
         if (selectedConcerns[i] == 1) {
             let id = superfund.id + "-subheading-" + i;
             result += "<div class=\"content-block-subheading\" id=\"" + id + "\">" + 
-            "<img src=" + concernData[i].icon + " class=\"concern-icon\">" +  concernData[i].name + "</div>" +
+            "<img src=" + concernData[i].icon + " class=\"concern-icon\">" +  concernData[i].name + generateRatingIcon(superfund, i) + "</div>" +
             "<div>" + superfund.concerns[i].desc + "</div><br>";
         }
     }
     return result + "</div>";
+}
+
+const generateRatingIcon = (superfund, concernNum) => {
+    let rating = superfund.concerns[concernNum].rating;
+    if (rating == 1) {
+        return "<div class=\"concern-rating concern-rating-1\"> </div>";
+    }
+    if (rating == 2) {
+        return "<div class=\"concern-rating concern-rating-2\"> </div>";
+    }
+    if (rating == 3) {
+        return "<div class=\"concern-rating concern-rating-3\"> </div>";
+    }
+    return "<div class=\"concern-rating concern-rating-0\"> </div>";
+}
+
+const generateRatingIconHelp = (rating) => {
+    if (rating == 1) {
+        return "<div class=\"concern-rating concern-rating-1\"> </div>";
+    }
+    if (rating == 2) {
+        return "<div class=\"concern-rating concern-rating-2\"> </div>";
+    }
+    if (rating == 3) {
+        return "<div class=\"concern-rating concern-rating-3\"> </div>";
+    }
+    return "<div class=\"concern-rating concern-rating-0\"> </div>";
 }

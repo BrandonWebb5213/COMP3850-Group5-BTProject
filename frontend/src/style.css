@@ -82,7 +82,20 @@ h1 {
 .sidebar-icon {
     width: 15px;
     margin-right: 2px;
+    vertical-align: -5%;
     /*filter: sepia(100%) saturate(200%) brightness(110%) hue-rotate(180deg);*/
+}
+#clear-button {
+    text-align: center;
+    width: 9.5em;
+    margin: 1em 0 0 0.5em;
+    background-color: #2d2d2d;
+    color: white;
+    border-radius: 7px;
+}
+#clear-button:hover {
+    background-color: #212121;
+    color: rgb(195, 59, 59);
 }
 
 /* Content Elements */
@@ -113,6 +126,7 @@ article {
 .concern-icon {
     width: 20px;
     margin-right: 3px;
+    vertical-align: bottom;
     /*filter: sepia(100%) saturate(200%) brightness(110%) hue-rotate(180deg);*/
 }
 #help-box {
@@ -125,6 +139,28 @@ article {
 #help-heading {
     color: rgb(119, 56, 56);
     border-color: rgb(119, 56, 56);
+}
+.concern-rating {
+    border: 2px solid black;
+    border-radius: 20px;
+    width: 12px;
+    height: 12px;
+    text-align: center;
+    display: inline-block;
+    margin-left: 6px;
+    vertical-align: -10%;
+}
+.concern-rating-0 {
+    background: radial-gradient(#e0e0e0,#b0b0b0);
+}
+.concern-rating-1 {
+    background: radial-gradient(#d31717,#800e0e);
+}
+.concern-rating-2 {
+    background: radial-gradient(#e1a500,#8f6c04);
+}
+.concern-rating-3 {
+    background: radial-gradient(#16bf00,#015e04);
 }
 
 /* Welcome Page */
