@@ -35,7 +35,7 @@ function mainPage(targetId, superfundData, concernData, selectedSuperfunds, sele
     for (let i = 0; i < concernData.length; i++) {
         if (selectedConcerns[i] == 1) {
             concernDescriptions += "<br><br><div class=\"content-block-subheading\">" + 
-            "<img src=\"images/icons/world.png\" class=\"concern-icon\">" + concernData[i].name + ":</div>" + 
+            "<img src=" + concernData[i].icon + " class=\"concern-icon\">" + concernData[i].name + ":</div>" + 
             concernData[i].desc;
         }
     }
@@ -123,7 +123,7 @@ const generateSuperfundList = (superfundData, selectedSuperfunds) => {
             "value=\"" + 1 + "\"" +
             "onchange=\"this.form.requestSubmit()\"" +
             selected + ">";
-        let image = "<img src=\"images/icons/executivepay.png\" class=\"sidebar-icon\">";
+        let image = "<img src=" + superfund.icon + " class=\"sidebar-icon\">";
 
         let label = "<label for=\"" + tag + "\">" + image + superfund.name + "</label>";
         result += input + label + "<br>";
@@ -156,7 +156,7 @@ const generateConcernList = (concernData, selectedConcerns) => {
             "value=\"" + 1 + "\" " +
             "onchange=\"this.form.requestSubmit()\"" +
             selected + ">";
-        let image = "<img src=\"images/icons/world.png\" class=\"sidebar-icon\">";
+        let image = "<img src=" + concern.icon + " class=\"sidebar-icon\">";
             
         let label = "<label for=\"" + tag + "\">" + image + concern.name + "</label>";
         result += input + label + "<br>";
@@ -203,13 +203,14 @@ const generateContent = (superfundData, concernData, selectedSuperfunds, selecte
  */
 const generateFundCard = (superfund, concernData, selectedConcerns) => {
     let result = "<div id=\"fund-card\" class=\"content-block\">" +
-    "<div class=\"content-block-heading\">" + "<img src=\"images/icons/executivepay.png\" class=\"superfund-icon\">" +
+    "<div class=\"content-block-heading\">" + "<img src=" + superfund.icon + " class=\"superfund-icon\">" +
      superfund.name + "</div>" +
     "<div>" + superfund.desc + "</div><br>";
     for (let i = 0; i < concernData.length; i++) {
         if (selectedConcerns[i] == 1) {
             let id = superfund.id + "-subheading-" + i;
-            result += "<div class=\"content-block-subheading\" id=\"" + id + "\">" + "<img src=\"images/icons/world.png\" class=\"concern-icon\">" +  concernData[i].name + "</div>" +
+            result += "<div class=\"content-block-subheading\" id=\"" + id + "\">" + 
+            "<img src=" + concernData[i].icon + " class=\"concern-icon\">" +  concernData[i].name + "</div>" +
             "<div>" + superfund.concerns[i].desc + "</div><br>";
         }
     }

@@ -32,6 +32,7 @@ const Model = {
                 id: "fund0",
                 name: "Fund 0",
                 desc: "A short description of the fund...",
+                icon: "images/icons/executivepay.png",
                 concerns: [
                     {
                         id: "concern0",
@@ -63,6 +64,7 @@ const Model = {
                 id: "fund1",
                 name: "Fund 1",
                 desc: "A short description of the fund...",
+                icon: "images/icons/bribery.png",
                 concerns: [
                     {
                         id: "concern0",
@@ -94,6 +96,7 @@ const Model = {
                 id: "fund2",
                 name: "Fund 2",
                 desc: "A short description of the fund...",
+                icon: "images/icons/boarddiversity.png",
                 concerns: [
                     {
                         id: "concern0",
@@ -125,6 +128,7 @@ const Model = {
                 id: "fund3",
                 name: "Fund 3",
                 desc: "A short description of the fund...",
+                icon: "images/icons/whistle.png",
                 concerns: [
                     {
                         id: "concern0",
@@ -156,6 +160,7 @@ const Model = {
                 id: "fund4",
                 name: "Fund 4",
                 desc: "A short description of the fund...",
+                icon: "images/icons/healthsafety.png",
                 concerns: [
                     {
                         id: "concern0",
@@ -187,6 +192,7 @@ const Model = {
                 id: "fund5",
                 name: "Fund 5",
                 desc: "A short description of the fund...",
+                icon: "images/icons/airandwater.png",
                 concerns: [
                     {
                         id: "concern0",
@@ -220,31 +226,37 @@ const Model = {
                 id: "concern0",
                 name: "Concern 0",
                 desc: "A short description of the concern...",
+                icon: "images/icons/world.png",
             },
             {
                 id: "concern1",
                 name: "Concern 1",
                 desc: "A short description of the concern...",
+                icon: "images/icons/taxes.png",
             },
             {
                 id: "concern2",
                 name: "Concern 2",
                 desc: "A short description of the concern...",
+                icon: "images/icons/renewable.png",
             },
             {
                 id: "concern3",
                 name: "Concern 3",
                 desc: "A short description of the concern...",
+                icon: "images/icons/humanrights.png",
             },
             {
                 id: "concern4",
                 name: "Concern 4",
                 desc: "A short description of the concern...",
+                icon: "images/icons/labourstandards.png",
             },
             {
                 id: "concern5",
                 name: "Concern 5",
                 desc: "A short description of the concern...",
+                icon: "images/icons/war.png",
             },
         ],
     }
