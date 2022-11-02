@@ -141,26 +141,12 @@ article {
     border-color: rgb(119, 56, 56);
 }
 .concern-rating {
-    border: 2px solid black;
-    border-radius: 20px;
-    width: 12px;
-    height: 12px;
+    width: 15px;
+    height: 15px;
     text-align: center;
     display: inline-block;
-    margin-left: 6px;
+    margin-left: 4px;
     vertical-align: -10%;
-}
-.concern-rating-0 {
-    background: radial-gradient(#e0e0e0,#b0b0b0);
-}
-.concern-rating-1 {
-    background: radial-gradient(#d31717,#800e0e);
-}
-.concern-rating-2 {
-    background: radial-gradient(#e1a500,#8f6c04);
-}
-.concern-rating-3 {
-    background: radial-gradient(#16bf00,#015e04);
 }
 
 /* Welcome Page */

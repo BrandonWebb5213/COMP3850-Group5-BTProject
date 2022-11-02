@@ -191,9 +191,9 @@ const generateContent = (superfundData, concernData, selectedSuperfunds, selecte
         "<img src = \"images/landscape_urbanpark.png\" id=\"welcome-image\">" +
         "<br><div class=\"content-block-subheading\">Welcome to the BT Financial ESG Comparison Tool.</div>" +
         "<br><div class=\"welcome-content\">Each industry in the market has varying levels of controversy. " +
-        " Some superfunds avoid investing in particularly controversial industries so that they can be seen as more ethically aware than their competitors. " + 
+        "Some superfunds avoid investing in particularly controversial industries so that they can be seen as more ethically aware than their competitors. " + 
         "A superfund's ESG (Environmental, Social and Governance) policies outline which industries each superfund will avoid investing in." +
-        "<br><br>The ESG comparison tool allows consumers to view the respective ESG policies of superfunds in the Australian market, " + 
+        "<br><br>This ESG comparison tool allows consumers to view the respective ESG policies of superfunds in the Australian market, " + 
         "so that they can make more informed decisions when choosing a superfund." +
         "<br><br>To begin your search, select some superfunds and areas of concern in the sidebar on the left-side of your screen." +
         "</div>";
@@ -224,29 +224,42 @@ const generateFundCard = (superfund, concernData, selectedConcerns) => {
     return result + "</div>";
 }
 
+/**
+ * Loads the respective rating icon for a given superfund and area of concern.
+ * 
+ * @param {*} superfund The superfund to load the rating icon for.
+ * @param {*} concernNum The area of concern to load the rating icon for.
+ * @returns HTML code for a rating icon.
+ */
 const generateRatingIcon = (superfund, concernNum) => {
     let rating = superfund.concerns[concernNum].rating;
     if (rating == 1) {
-        return "<div class=\"concern-rating concern-rating-1\"> </div>";
+        return "<img class=\"concern-rating\" src=\"images/ratings/red.png\">"
     }
     if (rating == 2) {
-        return "<div class=\"concern-rating concern-rating-2\"> </div>";
+        return "<img class=\"concern-rating\" src=\"images/ratings/yellow.png\">"
     }
     if (rating == 3) {
-        return "<div class=\"concern-rating concern-rating-3\"> </div>";
+        return "<img class=\"concern-rating\" src=\"images/ratings/green.png\">"
     }
-    return "<div class=\"concern-rating concern-rating-0\"> </div>";
+    return "<img class=\"concern-rating\" src=\"images/ratings/na.png\">"
 }
 
+/**
+ * Loads the respective rating icon for a given rating number.
+ * 
+ * @param {*} rating The rating number to load an icon for.
+ * @returns HTML code for a rating icon.
+ */
 const generateRatingIconHelp = (rating) => {
     if (rating == 1) {
-        return "<div class=\"concern-rating concern-rating-1\"> </div>";
+        return "<img class=\"concern-rating\" src=\"images/ratings/red.png\">"
     }
     if (rating == 2) {
-        return "<div class=\"concern-rating concern-rating-2\"> </div>";
+        return "<img class=\"concern-rating\" src=\"images/ratings/yellow.png\">"
     }
     if (rating == 3) {
-        return "<div class=\"concern-rating concern-rating-3\"> </div>";
+        return "<img class=\"concern-rating\" src=\"images/ratings/green.png\">"
     }
-    return "<div class=\"concern-rating concern-rating-0\"> </div>";
+    return "<img class=\"concern-rating\" src=\"images/ratings/na.png\">"
 }
