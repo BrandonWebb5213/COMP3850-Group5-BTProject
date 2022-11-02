@@ -37,26 +37,32 @@ const Model = {
                     {
                         id: "concern0",
                         desc: "A summary on the fund's stance in this area...",
+                        rating: 0,
                     },
                     {
                         id: "concern1",
                         desc: "A summary on the fund's stance in this area...",
+                        rating: 0,
                     },
                     {
                         id: "concern2",
                         desc: "A summary on the fund's stance in this area...",
+                        rating: 0,
                     },
                     {
                         id: "concern3",
                         desc: "A summary on the fund's stance in this area...",
+                        rating: 0,
                     },
                     {
                         id: "concern4",
                         desc: "A summary on the fund's stance in this area...",
+                        rating: 0,
                     },
                     {
                         id: "concern5",
                         desc: "A summary on the fund's stance in this area...",
+                        rating: 0,
                     },
                 ],
             },
@@ -69,26 +75,32 @@ const Model = {
                     {
                         id: "concern0",
                         desc: "A summary on the fund's stance in this area...",
+                        rating: 1,
                     },
                     {
                         id: "concern1",
                         desc: "A summary on the fund's stance in this area...",
+                        rating: 0,
                     },
                     {
                         id: "concern2",
                         desc: "A summary on the fund's stance in this area...",
+                        rating: 0,
                     },
                     {
                         id: "concern3",
                         desc: "A summary on the fund's stance in this area...",
+                        rating: 0,
                     },
                     {
                         id: "concern4",
                         desc: "A summary on the fund's stance in this area...",
+                        rating: 0,
                     },
                     {
                         id: "concern5",
                         desc: "A summary on the fund's stance in this area...",
+                        rating: 0,
                     },
                 ],
             },
@@ -101,26 +113,32 @@ const Model = {
                     {
                         id: "concern0",
                         desc: "A summary on the fund's stance in this area...",
+                        rating: 2,
                     },
                     {
                         id: "concern1",
                         desc: "A summary on the fund's stance in this area...",
+                        rating: 0,
                     },
                     {
                         id: "concern2",
                         desc: "A summary on the fund's stance in this area...",
+                        rating: 0,
                     },
                     {
                         id: "concern3",
                         desc: "A summary on the fund's stance in this area...",
+                        rating: 0,
                     },
                     {
                         id: "concern4",
                         desc: "A summary on the fund's stance in this area...",
+                        rating: 0,
                     },
                     {
                         id: "concern5",
                         desc: "A summary on the fund's stance in this area...",
+                        rating: 0,
                     },
                 ],
             },
@@ -133,26 +151,32 @@ const Model = {
                     {
                         id: "concern0",
                         desc: "A summary on the fund's stance in this area...",
+                        rating: 3,
                     },
                     {
                         id: "concern1",
                         desc: "A summary on the fund's stance in this area...",
+                        rating: 0,
                     },
                     {
                         id: "concern2",
                         desc: "A summary on the fund's stance in this area...",
+                        rating: 0,
                     },
                     {
                         id: "concern3",
                         desc: "A summary on the fund's stance in this area...",
+                        rating: 0,
                     },
                     {
                         id: "concern4",
                         desc: "A summary on the fund's stance in this area...",
+                        rating: 0,
                     },
                     {
                         id: "concern5",
                         desc: "A summary on the fund's stance in this area...",
+                        rating: 0,
                     },
                 ],
             },
@@ -165,26 +189,32 @@ const Model = {
                     {
                         id: "concern0",
                         desc: "A summary on the fund's stance in this area...",
+                        rating: 0,
                     },
                     {
                         id: "concern1",
                         desc: "A summary on the fund's stance in this area...",
+                        rating: 0,
                     },
                     {
                         id: "concern2",
                         desc: "A summary on the fund's stance in this area...",
+                        rating: 0,
                     },
                     {
                         id: "concern3",
                         desc: "A summary on the fund's stance in this area...",
+                        rating: 0,
                     },
                     {
                         id: "concern4",
                         desc: "A summary on the fund's stance in this area...",
+                        rating: 0,
                     },
                     {
                         id: "concern5",
                         desc: "A summary on the fund's stance in this area...",
+                        rating: 0,
                     },
                 ],
             },
@@ -197,26 +227,32 @@ const Model = {
                     {
                         id: "concern0",
                         desc: "A summary on the fund's stance in this area...",
+                        rating: 0,
                     },
                     {
                         id: "concern1",
                         desc: "A summary on the fund's stance in this area...",
+                        rating: 0,
                     },
                     {
                         id: "concern2",
                         desc: "A summary on the fund's stance in this area...",
+                        rating: 0,
                     },
                     {
                         id: "concern3",
                         desc: "A summary on the fund's stance in this area...",
+                        rating: 0,
                     },
                     {
                         id: "concern4",
                         desc: "A summary on the fund's stance in this area...",
+                        rating: 0,
                     },
                     {
                         id: "concern5",
                         desc: "A summary on the fund's stance in this area...",
+                        rating: 0,
                     },
                 ],
             },

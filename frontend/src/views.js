@@ -210,9 +210,23 @@ const generateFundCard = (superfund, concernData, selectedConcerns) => {
         if (selectedConcerns[i] == 1) {
             let id = superfund.id + "-subheading-" + i;
             result += "<div class=\"content-block-subheading\" id=\"" + id + "\">" + 
-            "<img src=" + concernData[i].icon + " class=\"concern-icon\">" +  concernData[i].name + "</div>" +
+            "<img src=" + concernData[i].icon + " class=\"concern-icon\">" +  concernData[i].name + generateRatingIcon(superfund, i) + "</div>" +
             "<div>" + superfund.concerns[i].desc + "</div><br>";
         }
     }
     return result + "</div>";
+}
+
+const generateRatingIcon = (superfund, concernNum) => {
+    let rating = superfund.concerns[concernNum].rating;
+    if (rating == 1) {
+        return "<div class=\"concern-rating concern-rating-1\"> </div>";
+    }
+    if (rating == 2) {
+        return "<div class=\"concern-rating concern-rating-2\"> </div>";
+    }
+    if (rating == 3) {
+        return "<div class=\"concern-rating concern-rating-3\"> </div>";
+    }
+    return "<div class=\"concern-rating concern-rating-0\"> </div>";
 }
