@@ -51,6 +51,11 @@ function mainPage(targetId, superfundData, concernData, selectedSuperfunds, sele
     "This tool enables you to view and compare the ESG policies of superfunds in the Australian market.<br>" +
     "You can edit your search settings using the sidebar on the left of the screen.<br>" +
     "Select any superfunds you are interested in, then select any areas of concern to see each fund's respective policies on them." +
+    "<br><br>Each superfund is given a rating based on its policies in each area of concern:" +
+    "<br>" + generateRatingIconHelp(3) + " Above average" + 
+    "<br>" + generateRatingIconHelp(2) + " Average" + 
+    "<br>" + generateRatingIconHelp(1) + " Below average" + 
+    "<br>" + generateRatingIconHelp(0) + " No policies could be found" + 
     concernDescriptions +
     "</div>" + document.getElementById("content-area").innerHTML;
 
@@ -219,6 +224,19 @@ const generateFundCard = (superfund, concernData, selectedConcerns) => {
 
 const generateRatingIcon = (superfund, concernNum) => {
     let rating = superfund.concerns[concernNum].rating;
+    if (rating == 1) {
+        return "<div class=\"concern-rating concern-rating-1\"> </div>";
+    }
+    if (rating == 2) {
+        return "<div class=\"concern-rating concern-rating-2\"> </div>";
+    }
+    if (rating == 3) {
+        return "<div class=\"concern-rating concern-rating-3\"> </div>";
+    }
+    return "<div class=\"concern-rating concern-rating-0\"> </div>";
+}
+
+const generateRatingIconHelp = (rating) => {
     if (rating == 1) {
         return "<div class=\"concern-rating concern-rating-1\"> </div>";
     }
