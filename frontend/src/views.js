@@ -107,8 +107,9 @@ const generateSuperfundList = (superfundData, selectedSuperfunds) => {
             "value=\"" + 1 + "\"" +
             "onchange=\"this.form.requestSubmit()\"" +
             selected + ">";
+        let image = "<img src=\"images/icons/executivepay.png\" class=\"sidebar-icon\">";
 
-        let label = "<label for=\"" + tag + "\">" + superfund.name + "</label>";
+        let label = "<label for=\"" + tag + "\">" + image + superfund.name + "</label>";
         result += input + label + "<br>";
         numFunds += 1;
     }
@@ -139,8 +140,9 @@ const generateConcernList = (concernData, selectedConcerns) => {
             "value=\"" + 1 + "\" " +
             "onchange=\"this.form.requestSubmit()\"" +
             selected + ">";
+        let image = "<img src=\"images/icons/world.png\" class=\"sidebar-icon\">";
             
-        let label = "<label for=\"" + tag + "\">" + concern.name + "</label>";
+        let label = "<label for=\"" + tag + "\">" + image + concern.name + "</label>";
         result += input + label + "<br>";
         numConcerns += 1;
     }
