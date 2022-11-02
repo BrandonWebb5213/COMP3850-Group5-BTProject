@@ -82,7 +82,7 @@ h1 {
 .sidebar-icon {
     width: 15px;
     margin-right: 2px;
-    filter: sepia(100%) saturate(200%) brightness(110%) hue-rotate(180deg);
+    /*filter: sepia(100%) saturate(200%) brightness(110%) hue-rotate(180deg);*/
 }
 
 /* Content Elements */
@@ -102,8 +102,18 @@ article {
     border-bottom: 1px solid black;
     margin: 0 0 0.5em 0;
 }
+.superfund-icon {
+    width: 25px;
+    margin-right: 4px;
+    /*filter: sepia(100%) saturate(200%) brightness(110%) hue-rotate(180deg);*/
+}
 .content-block-subheading {
     font-weight: bold;
+}
+.concern-icon {
+    width: 20px;
+    margin-right: 3px;
+    /*filter: sepia(100%) saturate(200%) brightness(110%) hue-rotate(180deg);*/
 }
 #help-box {
     border-color: rgb(119, 56, 56);
