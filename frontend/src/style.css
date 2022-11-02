@@ -82,7 +82,7 @@ h1 {
 .sidebar-icon {
     width: 15px;
     margin-right: 2px;
-    vertical-align: bottom;
+    vertical-align: -5%;
     /*filter: sepia(100%) saturate(200%) brightness(110%) hue-rotate(180deg);*/
 }
 
