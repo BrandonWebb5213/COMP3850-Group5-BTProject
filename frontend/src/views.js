@@ -163,7 +163,15 @@ const generateContent = (superfundData, concernData, selectedSuperfunds, selecte
         }
     }
     if (cards == "") {
-        return "<div class=\"content-block\">No superfunds currently selected. Select some in the sidebar.</div>"
+        return "<div class=\"content-block\" id=\"welcome-page\">" + 
+        "<img src = \"images/landscape_urbanpark.png\" id=\"welcome-image\">" +
+        "<br><div class=\"content-block-subheading\">Welcome to the BT Financial ESG Comparison Tool.</div>" +
+        "<br><div class=\"welcome-content\">In the market, there are a number of different industries that are a source of controversy. " +
+        "<br>Some superfunds avoid investing in these industries so that they can be seen as more ethically aware than their competitors. " + 
+        "A superfund's ESG (Environmental, Social and Governance) policies outline what markets each superfunds that a superfund will avoid." +
+        "<br><br>The ESG comparison tool allows consumers to view the respective ESG policies of superfunds in the Australian market, " + 
+        "so that they can make more informed decisions when choosing a superfund." +
+        "</div>";
     }
     return cards;
 }
