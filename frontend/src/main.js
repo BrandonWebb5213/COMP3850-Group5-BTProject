@@ -43,6 +43,8 @@ function redraw() {
     // set submit event listener for sidebar search to run loadSelectedContent function
     let form = document.getElementById('sidebar');
     form.addEventListener('submit', loadSelectedContent);
+
+    document.getElementById('clear-button').onclick = clearSearch;
 }
 
 /**
@@ -77,6 +79,22 @@ function loadSelectedContent() {
     saveSessionStorage();
 }
 
+function clearSearch() {
+    // load selected super fund data into array
+    for (let i = 0; i < superfundData.length; i++) {
+        selectedSuperfunds[i] = 0;
+    }
+    
+    console.log(selectedSuperfunds);
+    // load selected markets of concern data into array
+    for (let i = 0; i < concernData.length; i++) {
+        selectedConcerns[i] = 0;
+    }
+
+    // save data into session storage so it can be loaded upon a refresh
+    saveSessionStorage();
+}
+
 /**
  * Saves any necessary variables to session storage so that it can be saved upon refreshing.
  */
@@ -87,6 +105,7 @@ function saveSessionStorage() {
     for(let i = 0; i < selectedSuperfunds.length; i++) {
         sessionStorage.setItem("selectedConcerns" + i, selectedConcerns[i]);
     }
+    redraw();
 }
 
 /**

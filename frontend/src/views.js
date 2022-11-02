@@ -101,6 +101,7 @@ const generateSidebar = (superfundData, concernData, selectedSuperfunds, selecte
             "<p class=\"sidebar-category-heading\">Areas of Concern</p>" +
             generateConcernList(concernData, selectedConcerns) +
         "</div>" +
+        "<button id=\"clear-button\" type=\"button\">Clear Search</button>" +
     "</form>";
 }
 

@@ -85,6 +85,16 @@ h1 {
     vertical-align: -5%;
     /*filter: sepia(100%) saturate(200%) brightness(110%) hue-rotate(180deg);*/
 }
+#clear-button {
+    text-align: center;
+    margin: 1em 0 0 0.5em;
+    background-color: #2d2d2d;
+    color: white;
+}
+#clear-button:hover {
+    background-color: #212121;
+    color: rgb(195, 59, 59);
+}
 
 /* Content Elements */
 article {
