@@ -1204,7 +1204,7 @@ const Model = {
                 id: "concern7",
                 name: "First Nations",
                 longName: "First Nations Reconciliation",
-                desc: "This area of concern covers the impacts that an organisation has on the indigenous people of a country. <br>It is crucial that an organisations reduce their negative impacts on indigenous people and promote equality and positivity for the indigenous people.",
+                desc: "This area of concern covers the impacts that an organisation has on the indigenous people of a country. <br>It is crucial that organisations reduce their negative impacts on indigenous people and promote equality and positivity for indigenous people.",
                 icon: "images/icons/firstnations.png",
             },
             {
