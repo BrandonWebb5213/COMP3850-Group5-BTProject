@@ -211,13 +211,13 @@ const generateContent = (superfundData, concernData, selectedSuperfunds, selecte
 const generateFundCard = (superfund, concernData, selectedConcerns) => {
     let result = "<div id=\"fund-card\" class=\"content-block\">" +
     "<div class=\"content-block-heading\">" + "<img src=" + superfund.icon + " class=\"superfund-icon\">" +
-     superfund.name + "</div>" +
+     superfund.longName + "</div>" +
     "<div>" + superfund.desc + "</div><br>";
     for (let i = 0; i < concernData.length; i++) {
         if (selectedConcerns[i] == 1) {
             let id = superfund.id + "-subheading-" + i;
             result += "<div class=\"content-block-subheading\" id=\"" + id + "\">" + 
-            "<img src=" + concernData[i].icon + " class=\"concern-icon\">" +  concernData[i].name + generateRatingIcon(superfund, i) + "</div>" +
+            "<img src=" + concernData[i].icon + " class=\"concern-icon\">" +  concernData[i].longName + generateRatingIcon(superfund, i) + "</div>" +
             "<div>" + superfund.concerns[i].desc + "</div><br>";
         }
     }
