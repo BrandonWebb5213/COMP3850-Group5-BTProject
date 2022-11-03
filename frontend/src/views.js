@@ -35,7 +35,7 @@ function mainPage(targetId, superfundData, concernData, selectedSuperfunds, sele
     for (let i = 0; i < concernData.length; i++) {
         if (selectedConcerns[i] == 1) {
             concernDescriptions += "<br><br><div class=\"content-block-subheading\">" + 
-            "<img src=" + concernData[i].icon + " class=\"concern-icon\">" + concernData[i].name + ":</div>" + 
+            "<img src=" + concernData[i].icon + " class=\"concern-icon\">" + concernData[i].longName + ":</div>" + 
             concernData[i].desc;
         }
     }

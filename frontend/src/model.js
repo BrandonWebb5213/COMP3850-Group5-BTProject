@@ -1204,7 +1204,7 @@ const Model = {
                 id: "concern7",
                 name: "First Nations",
                 longName: "First Nations Reconciliation",
-                desc: "A short description of the concern...",
+                desc: "This area of concern covers the impacts that an organisation has on the indigenous people of a country. <br>It is crucial that an organisations reduce their negative impacts on indigenous people and promote equality and positivity for the indigenous people.",
                 icon: "images/icons/firstnations.png",
             },
             {
@@ -1218,7 +1218,7 @@ const Model = {
                 id: "concern9",
                 name: "Slavery",
                 longName: "Modern Slavery",
-                desc: "A short description of the concern...",
+                desc: "Slavery is often thought of as an issue of the past, but it never really went away. There are more people living in slavery around the world today than there have been at any point in history. Organisations should not be supporting this industry in any form, and should be focusing their efforts on freeing slaves around the world.",
                 icon: "images/icons/slavery.png",
             },
         ],
