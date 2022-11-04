@@ -79,14 +79,17 @@ function loadSelectedContent() {
     saveSessionStorage();
 }
 
+/**
+ * Clears all selected superfunds and areas of concern.
+ */
 function clearSearch() {
-    // load selected super fund data into array
+    // go through selectedSuperfund data and unselect them
     for (let i = 0; i < superfundData.length; i++) {
         selectedSuperfunds[i] = 0;
     }
     
     console.log(selectedSuperfunds);
-    // load selected markets of concern data into array
+    // go through selectedConcern data and unselect them
     for (let i = 0; i < concernData.length; i++) {
         selectedConcerns[i] = 0;
     }
