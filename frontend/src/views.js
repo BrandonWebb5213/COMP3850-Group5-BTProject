@@ -2,6 +2,12 @@ export {mainPage, infoPage, missingPage}; // export functions for use by main.js
 
 let imageURL = "http://localhost:1337";
 
+let emptyConcern = {
+    rating: 0,
+    desc: "A short description of the fund's stance...",
+    link: ""
+};
+
 /**
  * Loads the content of the site into the main div.
  * This includes loading the sidebar and the main content of the site.
@@ -219,33 +225,57 @@ const generateFundCard = (superfund, concernData, selectedConcerns) => {
     for (let i = 0; i < concernData.length; i++) {
         if (selectedConcerns[i] == 1) {
             let id = superfund._id + "-subheading-" + i;
+            let concern = getConcern(superfund, concernData[i]);
             result += "<div class=\"content-block-subheading\" id=\"" + id + "\">" + 
-            "<img src=" + imgURL + concernData[i].icon.formats.thumbnail.url + " class=\"concern-icon\">" +  concernData[i].longName + generateRatingIcon(superfund, i) + "</div>" +
-            "<div>" + superfund.concerns[i].desc + "</div><br>";
+            "<img src=" + imgURL + concernData[i].icon.formats.thumbnail.url + " class=\"concern-icon\">" +  concernData[i].longName + generateRatingIcon(concern.rating) + "</div>" +
+            "<div>" + concern.desc + "</div><br>";
         }
     }
     return result + "</div>";
 }
 
 /**
- * Loads the respective rating icon for a given superfund and area of concern.
+ * Searches the given superfunds concern data. If no information could be found, returns information stating that.
  * 
- * @param {*} superfund The superfund to load the rating icon for.
- * @param {*} concernNum The area of concern to load the rating icon for.
- * @returns HTML code for a rating icon.
+ * @param {*} superfund The superfund to retrieve the information from.
+ * @param {*} concern The area of concern to search for.
+ * @returns Information about the given superfunds policies relating to that area of concern.
  */
-const generateRatingIcon = (superfund, concernNum) => {
-    let rating = superfund.concerns[concernNum].rating;
-    if (rating == 1) {
-        return "<img class=\"concern-rating\" src=\"" + imageURL + "/uploads/red_313d7b430b.png\">"
+const getConcern = (superfund, concern) => {
+    let result = emptyConcern;
+    let search = superfund.fundEnvType;
+    let type = 0;
+    if (concern.type == "soc") {
+        type = 1;
+        search = superfund.fundSocType;
     }
-    if (rating == 2) {
-        return "<img class=\"concern-rating\" src=\"" + imageURL + "/uploads/yellow_4bfb66e5b8.png\">"
+    else if (concern.type == "gov") {
+        type = 2;
+        search = superfund.fundGovType;
     }
-    if (rating == 3) {
-        return "<img class=\"concern-rating\" src=\"" + imageURL + "/uploads/green_f624adbd60.png\">"
+    else if (concernType != "env"){
+        return result;
     }
-    return "<img class=\"concern-rating\" src=\"" + imageURL + "/uploads/na_698c529ec3.png\">"
+    for (let i = 0; i < search.length; i++) {
+        if (i.concern.id == concern.id) {
+            if (type == 0) {
+                result.desc = i.catEnvTypeDesc;
+                result.link = i.catEnvTypeLink;
+                result.rating = i.catEnvTypeRate;
+            }
+            else if (type == 1) {
+                 result.desc = i.catSocTypeDesc;
+                 result.link = i.catSocTypeLink;
+                 result.rating = i.catSocTypeRate;
+            }
+            else {
+                result.desc = i.catGovTypeDesc;
+                result.link = i.catGovTypeLink;
+                result.rating = i.catGovTypeRate;
+            }
+        }
+    }
+    return result;
 }
 
 /**
@@ -254,7 +284,7 @@ const generateRatingIcon = (superfund, concernNum) => {
  * @param {*} rating The rating number to load an icon for.
  * @returns HTML code for a rating icon.
  */
-const generateRatingIconHelp = (rating) => {
+const generateRatingIcon = (rating) => {
     if (rating == 1) {
         return "<img class=\"concern-rating\" src=\"" + imageURL + "/uploads/red_313d7b430b.png\">"
     }
