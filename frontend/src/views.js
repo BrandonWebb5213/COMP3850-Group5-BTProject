@@ -191,7 +191,7 @@ const generateContent = (superfundData, concernData, selectedSuperfunds, selecte
     }
     if (cards == "") {
         return "<div class=\"content-block\" id=\"welcome-page\">" + 
-        "<img src = \"images/landscape_urbanpark.png\" id=\"welcome-image\">" +
+        "<img src = \"" + imageURL + "/uploads/landscape_urbanpark_b7b4f5fde0.png\" id=\"welcome-image\">" +
         "<br><div class=\"content-block-subheading\">Welcome to the BT Financial ESG Comparison Tool.</div>" +
         "<br><div class=\"welcome-content\">Each industry in the market has varying levels of controversy. " +
         "Some superfunds avoid investing in particularly controversial industries so that they can be seen as more ethically aware than their competitors. " + 
@@ -237,15 +237,15 @@ const generateFundCard = (superfund, concernData, selectedConcerns) => {
 const generateRatingIcon = (superfund, concernNum) => {
     let rating = superfund.concerns[concernNum].rating;
     if (rating == 1) {
-        return "<img class=\"concern-rating\" src=\"images/ratings/red.png\">"
+        return "<img class=\"concern-rating\" src=\"" + imageURL + "/uploads/red_313d7b430b.png\">"
     }
     if (rating == 2) {
-        return "<img class=\"concern-rating\" src=\"images/ratings/yellow.png\">"
+        return "<img class=\"concern-rating\" src=\"" + imageURL + "/uploads/yellow_4bfb66e5b8.png\">"
     }
     if (rating == 3) {
-        return "<img class=\"concern-rating\" src=\"images/ratings/green.png\">"
+        return "<img class=\"concern-rating\" src=\"" + imageURL + "/uploads/green_f624adbd60.png\">"
     }
-    return "<img class=\"concern-rating\" src=\"images/ratings/na.png\">"
+    return "<img class=\"concern-rating\" src=\"" + imageURL + "/uploads/na_698c529ec3.png\">"
 }
 
 /**
@@ -256,13 +256,13 @@ const generateRatingIcon = (superfund, concernNum) => {
  */
 const generateRatingIconHelp = (rating) => {
     if (rating == 1) {
-        return "<img class=\"concern-rating\" src=\"images/ratings/red.png\">"
+        return "<img class=\"concern-rating\" src=\"" + imageURL + "/uploads/red_313d7b430b.png\">"
     }
     if (rating == 2) {
-        return "<img class=\"concern-rating\" src=\"images/ratings/yellow.png\">"
+        return "<img class=\"concern-rating\" src=\"" + imageURL + "/uploads/yellow_4bfb66e5b8.png\">"
     }
     if (rating == 3) {
-        return "<img class=\"concern-rating\" src=\"images/ratings/green.png\">"
+        return "<img class=\"concern-rating\" src=\"" + imageURL + "/uploads/green_f624adbd60.png\">"
     }
-    return "<img class=\"concern-rating\" src=\"images/ratings/na.png\">"
+    return "<img class=\"concern-rating\" src=\"" + imageURL + "/uploads/na_698c529ec3.png\">"
 }
