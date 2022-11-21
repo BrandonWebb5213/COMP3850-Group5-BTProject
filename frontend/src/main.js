@@ -55,7 +55,7 @@ function redraw() {
 function loadSelectedContent() {
     // load selected super fund data into array
     for (let i = 0; i < superfundData.length; i++) {
-        let id = superfundData[i].id;
+        let id = superfundData[i]._id;
         if (document.getElementById(id).checked) {
             selectedSuperfunds[i] = 1;
         }
@@ -143,16 +143,21 @@ function loadSessionStorage() {
 }
 
 /**
- * Loads the data from model.js and saves into local variables.
+ * Loads fund data from model.js and saves into local variables.
  */
-function loadModel() {
+function loadFundModel() {
     superfundData = Model.data.superfunds;
+    console.log("superfund model updated");
+    redraw();
+}
+
+/**
+ * Loads fund data from model.js and saves into local variables.
+ */
+ function loadConcernModel() {
     concernData = Model.data.concerns;
-    let data = Model.funds.superfunds
-    console.log("data" , data)
-    console.log("superfunddata", superfundData)
-    
-    console.log("concerndata", concernData)
+    console.log("concern model updated");
+    redraw();
 }
 
 /**
@@ -167,9 +172,9 @@ window.onhashchange = function () {
  */
 window.onload = function() {
     Model.loadData();
-    loadModel();
     loadSessionStorage();    
     redraw();
 };
 
-window.addEventListener("modelUpdated", loadModel);
+window.addEventListener("fundModelUpdated", loadFundModel);
+window.addEventListener("concernModelUpdated", loadConcernModel);

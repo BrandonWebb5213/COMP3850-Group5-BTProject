@@ -1,5 +1,7 @@
 export {mainPage, infoPage, missingPage}; // export functions for use by main.js
 
+let imageURL = "http://localhost:1337";
+
 /**
  * Loads the content of the site into the main div.
  * This includes loading the sidebar and the main content of the site.
@@ -35,7 +37,7 @@ function mainPage(targetId, superfundData, concernData, selectedSuperfunds, sele
     for (let i = 0; i < concernData.length; i++) {
         if (selectedConcerns[i] == 1) {
             concernDescriptions += "<br><br><div class=\"content-block-subheading\">" + 
-            "<img src=" + concernData[i].icon + " class=\"concern-icon\">" + concernData[i].longName + ":</div>" + 
+            "<img src=" + imageURL + concernData[i].icon.formats.thumbnail.url + " class=\"concern-icon\">" + concernData[i].longName + ":</div>" + 
             concernData[i].desc;
         }
     }
@@ -118,7 +120,7 @@ const generateSuperfundList = (superfundData, selectedSuperfunds) => {
     let result = "";
     let numFunds = 0;
     for (const superfund of superfundData) {
-        let tag = superfund.id;
+        let tag = superfund._id;
         let selected = "";
         if (selectedSuperfunds[numFunds] == 1) {
             selected = "checked";
@@ -129,9 +131,9 @@ const generateSuperfundList = (superfundData, selectedSuperfunds) => {
             "value=\"" + 1 + "\"" +
             "onchange=\"this.form.requestSubmit()\"" +
             selected + ">";
-        let image = "<img src=" + superfund.icon + " class=\"sidebar-icon\">";
+        let image = "<img src=" + imageURL + superfund.fundLogo.formats.thumbnail.url + " class=\"sidebar-icon\">";
 
-        let label = "<label for=\"" + tag + "\">" + image + superfund.name + "</label>";
+        let label = "<label for=\"" + tag + "\">" + image + superfund.shortName + "</label>";
         result += input + label + "<br>";
         numFunds += 1;
     }
@@ -148,10 +150,11 @@ const generateSuperfundList = (superfundData, selectedSuperfunds) => {
  * @returns A list of checkboxes representing the various markets of concern.
  */
 const generateConcernList = (concernData, selectedConcerns) => {
+    console.log(concernData);
     let result = "";
     let numConcerns = 0;
     for (const concern of concernData) {
-        let tag = concern.id;
+        let tag = concern._id;
         let selected = "";
         if (selectedConcerns[numConcerns] == 1) {
             selected = "checked";
@@ -162,9 +165,9 @@ const generateConcernList = (concernData, selectedConcerns) => {
             "value=\"" + 1 + "\" " +
             "onchange=\"this.form.requestSubmit()\"" +
             selected + ">";
-        let image = "<img src=" + concern.icon + " class=\"sidebar-icon\">";
+        let image = "<img src=" + imageURL + concern.icon.url + " class=\"sidebar-icon\">";
             
-        let label = "<label for=\"" + tag + "\">" + image + concern.name + "</label>";
+        let label = "<label for=\"" + tag + "\">" + image + concern.shortName + "</label>";
         result += input + label + "<br>";
         numConcerns += 1;
     }
@@ -210,14 +213,14 @@ const generateContent = (superfundData, concernData, selectedSuperfunds, selecte
  */
 const generateFundCard = (superfund, concernData, selectedConcerns) => {
     let result = "<div id=\"fund-card\" class=\"content-block\">" +
-    "<div class=\"content-block-heading\">" + "<img src=" + superfund.icon + " class=\"superfund-icon\">" +
+    "<div class=\"content-block-heading\">" + "<img src=" + imageURL + superfund.fundLogo.formats.thumbnail.url + " class=\"superfund-icon\">" +
      superfund.longName + "</div>" +
-    "<div>" + superfund.desc + "</div><br>";
+    "<div>" + superfund.fundIntro + "</div><br>";
     for (let i = 0; i < concernData.length; i++) {
         if (selectedConcerns[i] == 1) {
-            let id = superfund.id + "-subheading-" + i;
+            let id = superfund._id + "-subheading-" + i;
             result += "<div class=\"content-block-subheading\" id=\"" + id + "\">" + 
-            "<img src=" + concernData[i].icon + " class=\"concern-icon\">" +  concernData[i].longName + generateRatingIcon(superfund, i) + "</div>" +
+            "<img src=" + imgURL + concernData[i].icon.formats.thumbnail.url + " class=\"concern-icon\">" +  concernData[i].longName + generateRatingIcon(superfund, i) + "</div>" +
             "<div>" + superfund.concerns[i].desc + "</div><br>";
         }
     }
