@@ -148,6 +148,14 @@ article {
     margin-left: 4px;
     vertical-align: -10%;
 }
+.concern-citation {
+    text-decoration: none;
+    font-style: italic;
+    font-size: 0.8em;
+}
+.concern-citation:hover {
+    color: red;
+}
 
 /* Welcome Page */
 #welcome-page {

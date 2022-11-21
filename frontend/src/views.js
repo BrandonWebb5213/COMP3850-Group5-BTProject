@@ -2,9 +2,9 @@ export {mainPage, infoPage, missingPage}; // export functions for use by main.js
 
 let imageURL = "http://localhost:1337";
 
-let emptyConcern = {
+const emptyConcern = {
     rating: 0,
-    desc: "A short description of the fund's stance...",
+    desc: "No information could be found in this area.",
     link: ""
 };
 
@@ -60,10 +60,10 @@ function mainPage(targetId, superfundData, concernData, selectedSuperfunds, sele
     "You can edit your search settings using the sidebar on the left of the screen.<br>" +
     "Select any superfunds you are interested in, then select any areas of concern to see each fund's respective policies on them." +
     "<br><br>Each superfund is given a rating based on its policies in each area of concern:" +
-    "<br>" + generateRatingIconHelp(3) + " Above average" + 
-    "<br>" + generateRatingIconHelp(2) + " Average" + 
-    "<br>" + generateRatingIconHelp(1) + " Below average" + 
-    "<br>" + generateRatingIconHelp(0) + " No policies could be found" + 
+    "<br>" + generateRatingIcon(3) + " Above average" + 
+    "<br>" + generateRatingIcon(2) + " Average" + 
+    "<br>" + generateRatingIcon(1) + " Below average" + 
+    "<br>" + generateRatingIcon(0) + " No policies could be found" + 
     concernDescriptions +
     "</div>" + document.getElementById("content-area").innerHTML;
 
@@ -126,7 +126,7 @@ const generateSuperfundList = (superfundData, selectedSuperfunds) => {
     let result = "";
     let numFunds = 0;
     for (const superfund of superfundData) {
-        let tag = superfund._id;
+        let tag = superfund.id;
         let selected = "";
         if (selectedSuperfunds[numFunds] == 1) {
             selected = "checked";
@@ -160,7 +160,7 @@ const generateConcernList = (concernData, selectedConcerns) => {
     let result = "";
     let numConcerns = 0;
     for (const concern of concernData) {
-        let tag = concern._id;
+        let tag = concern.id;
         let selected = "";
         if (selectedConcerns[numConcerns] == 1) {
             selected = "checked";
@@ -224,11 +224,16 @@ const generateFundCard = (superfund, concernData, selectedConcerns) => {
     "<div>" + superfund.fundIntro + "</div><br>";
     for (let i = 0; i < concernData.length; i++) {
         if (selectedConcerns[i] == 1) {
-            let id = superfund._id + "-subheading-" + i;
+            let id = superfund.id + "-subheading-" + i;
             let concern = getConcern(superfund, concernData[i]);
+            let link = "";
+            if (concern.link.length > 0) {
+                link = " <a href=\"" + concern.link + "\" class=\"concern-citation\">source</a>";
+            }
             result += "<div class=\"content-block-subheading\" id=\"" + id + "\">" + 
-            "<img src=" + imgURL + concernData[i].icon.formats.thumbnail.url + " class=\"concern-icon\">" +  concernData[i].longName + generateRatingIcon(concern.rating) + "</div>" +
-            "<div>" + concern.desc + "</div><br>";
+            "<img src=" + imageURL + concernData[i].icon.formats.thumbnail.url + " class=\"concern-icon\">" +  concernData[i].longName + 
+            generateRatingIcon(concern.rating) + link + "</div>" +
+            "<div>" + concern.desc + "</div><br><br>";
         }
     }
     return result + "</div>";
@@ -242,7 +247,8 @@ const generateFundCard = (superfund, concernData, selectedConcerns) => {
  * @returns Information about the given superfunds policies relating to that area of concern.
  */
 const getConcern = (superfund, concern) => {
-    let result = emptyConcern;
+    console.log(emptyConcern);
+    let result = Object.assign({}, emptyConcern);
     let search = superfund.fundEnvType;
     let type = 0;
     if (concern.type == "soc") {
@@ -253,29 +259,48 @@ const getConcern = (superfund, concern) => {
         type = 2;
         search = superfund.fundGovType;
     }
-    else if (concernType != "env"){
+    else if (concern.type != "env"){
         return result;
     }
-    for (let i = 0; i < search.length; i++) {
-        if (i.concern.id == concern.id) {
+    for (const target of search) {
+        if (target.concern.id == concern.id) {
             if (type == 0) {
-                result.desc = i.catEnvTypeDesc;
-                result.link = i.catEnvTypeLink;
-                result.rating = i.catEnvTypeRate;
+                result.desc = target.catEnvTypeDesc;
+                result.link = target.catEnvTypeLink;
+                result.rating = convertRating(target.catEnvTypeRate);
             }
             else if (type == 1) {
-                 result.desc = i.catSocTypeDesc;
-                 result.link = i.catSocTypeLink;
-                 result.rating = i.catSocTypeRate;
+                 result.desc = target.catSocTypeDesc;
+                 result.link = target.catSocTypeLink;
+                 result.rating = convertRating(target.catSocTypeRate);
             }
             else {
-                result.desc = i.catGovTypeDesc;
-                result.link = i.catGovTypeLink;
-                result.rating = i.catGovTypeRate;
+                result.desc = target.catGovTypeDesc;
+                result.link = target.catGovTypeLink;
+                result.rating = convertRating(target.catGovTypeRate);
             }
         }
     }
     return result;
+}
+
+/**
+ * Converts text ratings into a number rating (0-3)
+ * 
+ * @param {*} rating The text rating to convert
+ * @returns A numbered rating (0 = unknown, 1 = negative, 2 = unclear, 3 = positive)
+ */
+const convertRating = (rating) => {
+    if (rating == "Positive") {
+        return 3;
+    }
+    if (rating == "Unclear") {
+        return 2;
+    }
+    if (rating == "Negative") {
+        return 1;
+    }
+    return 0;
 }
 
 /**
