@@ -12,7 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "fundName": {
+    "shortName": {
       "type": "string"
     },
     "concerns": {
@@ -65,6 +65,12 @@
       "type": "component",
       "repeatable": true,
       "component": "issue.soc-type"
+    },
+    "longName": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "text"
     }
   }
 }

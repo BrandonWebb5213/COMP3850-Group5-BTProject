@@ -1,7 +1,7 @@
 export {Model}; // export the data for use in main.js
 
-//let baseURL = "http://localhost:1337/funds"    //once the webdomain is setup we will change this to pull from there
-let baseURL = "funds.json";
+let baseURL = "http://localhost:1337/funds"    //once the webdomain is setup we will change this to pull from there
+baseURL = "funds.json";
 
 /**
  * Defines the data for each superfund and market of concern.

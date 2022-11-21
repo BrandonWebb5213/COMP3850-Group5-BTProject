@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "concerns",
+  "info": {
+    "name": "Concerns",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "shortName": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "text"
+    },
+    "longName": {
+      "type": "string"
+    },
+    "desc": {
+      "type": "text"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "env",
+        "gov",
+        "soc"
+      ]
+    }
+  }
+}
