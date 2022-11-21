@@ -13,10 +13,8 @@
   "pluginOptions": {},
   "attributes": {
     "shortName": {
-      "type": "string"
-    },
-    "icon": {
-      "type": "text"
+      "type": "string",
+      "maxLength": 16
     },
     "longName": {
       "type": "string"
@@ -31,6 +29,18 @@
         "gov",
         "soc"
       ]
+    },
+    "icon": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
     }
   }
 }

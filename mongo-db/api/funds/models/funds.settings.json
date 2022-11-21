@@ -13,7 +13,8 @@
   "pluginOptions": {},
   "attributes": {
     "shortName": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 16
     },
     "concerns": {
       "type": "json"
