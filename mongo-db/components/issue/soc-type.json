@@ -46,7 +46,7 @@
         "Unclear"
       ]
     },
-    "concerns": {
+    "concern": {
       "model": "concerns"
     }
   }
